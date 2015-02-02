@@ -1,10 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="DataSourceManagerImpl" format="xml" hash="3778905503">
+  <component name="DataSourceManagerImpl" format="xml" hash="1615802411">
     <data-source source="LOCAL" name="Rails upstate_syrup: development" uuid="c81933bd-5b8a-4ef2-baab-b045ff5980c0">
       <driver-ref>sqlite.xerial</driver-ref>
-      <jdbc-driver>org.sqlite.JDBC</jdbc-driver>
-      <jdbc-url>jdbc:sqlite:C:\GD\Projects\upstate_syrup\db\development.sqlite3</jdbc-url>
+      <jdbc-driver>org.postgresql.Driver</jdbc-driver>
+      <jdbc-url>jdbc:postgresql://127.0.0.1:5432/test</jdbc-url>
+      <user-name>postgres</user-name>
+      <libraries />
+    </data-source>
+    <data-source source="LOCAL" name="Rails upstate_syrup: production" uuid="5a518fe4-c814-49d5-b3f3-c74d69b003de">
+      <driver-ref>postgresql</driver-ref>
+      <jdbc-driver>org.postgresql.Driver</jdbc-driver>
+      <jdbc-url>jdbc:postgresql://127.0.0.1:5432/test</jdbc-url>
+      <user-name>postgres</user-name>
+      <libraries />
+    </data-source>
+    <data-source source="LOCAL" name="Rails upstate_syrup: test" uuid="65fafb72-e407-4389-a713-f7fb47c94367">
+      <driver-ref>postgresql</driver-ref>
+      <jdbc-driver>org.postgresql.Driver</jdbc-driver>
+      <jdbc-url>jdbc:postgresql://127.0.0.1:5432/test2</jdbc-url>
+      <user-name>postgres</user-name>
       <libraries />
     </data-source>
   </component>
