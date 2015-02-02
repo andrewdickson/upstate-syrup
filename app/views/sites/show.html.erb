@@ -1,0 +1,65 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Name:</b>
+  <%= @site.name %>
+</p>
+
+<p>
+  <b>Base url:</b>
+  <%= @site.base_url %>
+</p>
+
+<p>
+  <b>Subdomain:</b>
+  <%= @site.subdomain %>
+</p>
+
+<p>
+  <b>Phone:</b>
+  <%= @site.phone %>
+</p>
+
+<p>
+  <b>Email:</b>
+  <%= @site.email %>
+</p>
+
+<p>
+  <b>Address1:</b>
+  <%= @site.address1 %>
+</p>
+
+<p>
+  <b>Address2:</b>
+  <%= @site.address2 %>
+</p>
+
+<p>
+  <b>Address3:</b>
+  <%= @site.address3 %>
+</p>
+
+<p>
+  <b>Owner:</b>
+  <%= @site.owner %>
+</p>
+
+<p>
+  <b>Company:</b>
+  <%= @site.company %>
+</p>
+
+<p>
+  <b>Copyright:</b>
+  <%= @site.copyright %>
+</p>
+
+<p>
+  <b>Template:</b>
+  <%= @site.template_id %>
+</p>
+
+
+<%= link_to 'Edit', edit_site_path(@site) %> |
+<%= link_to 'Back', sites_path %>
