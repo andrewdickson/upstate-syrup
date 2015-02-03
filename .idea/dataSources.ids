@@ -3,4 +3,10 @@
   <data-source source="LOCAL" name="Rails kraeger_syrup: development" uuid="76be5aa5-a237-4054-89f3-b0c6bd4dddc0">
     <database-info product="" version="" jdbc-version="" driver-name="" driver-version=""/>
   </data-source>
+  <data-source source="LOCAL" name="Rails kraeger_syrup: test" uuid="37e8d327-0856-49ba-ae76-91738c96ab58">
+    <database-info product="" version="" jdbc-version="" driver-name="" driver-version=""/>
+  </data-source>
+  <data-source source="LOCAL" name="Rails kraeger_syrup: production" uuid="634ef6a8-beb2-4689-a10d-c7fdbc26a612">
+    <database-info product="" version="" jdbc-version="" driver-name="" driver-version=""/>
+  </data-source>
 </component>
