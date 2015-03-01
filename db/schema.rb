@@ -11,23 +11,6 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20150202233511) do
-
-  create_table "sites", :force => true do |t|
-    t.string   "name"
-    t.string   "base_url"
-    t.string   "subdomain"
-    t.string   "phone"
-    t.string   "email"
-    t.string   "address1"
-    t.string   "address2"
-    t.string   "address3"
-    t.string   "owner"
-    t.string   "company"
-    t.string   "copyright"
-    t.integer  "template_id"
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
-  end
+ActiveRecord::Schema.define(:version => 20150228223019) do
 
 end
