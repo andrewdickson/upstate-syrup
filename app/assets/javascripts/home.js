@@ -3,11 +3,12 @@ $(document).ready(function(){
     var map;
     var elevator;
     var myOptions = {
-        zoom: 1,
+        zoom: 10,
         center: new google.maps.LatLng(0, 0),
         mapTypeId: 'terrain'
     };
     map = new google.maps.Map($('#map_canvas')[0], myOptions);
+
 
     var address = encodeURIComponent('3164 state route 26 Constableville, NY 13325, USA');
 
@@ -23,7 +24,10 @@ $(document).ready(function(){
             return bounds.extend(marker.getPosition());
         }, new google.maps.LatLngBounds()));
 
+        map.setZoom(8);
+
     });
+
 
 
 });

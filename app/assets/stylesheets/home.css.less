@@ -1,15 +1,29 @@
-
-.navbar-header .navbar-brand{
-  color: black;
-  font-size: 2em;
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
 }
 
+body {
+  font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+  font-weight: 300;
+}
+
+nav{
+  background-image: image-url("header-woods.png");
+}
+
+.navbar-header .navbar-brand{
+  color: white;
+  font-size: 3em;
+}
 
 .navbar-brand,
 .navbar-nav li a{
   line-height: 100px;
   height: 100px;
   padding-top: 0;
+
 }
 
 #pills{
@@ -18,9 +32,26 @@
 
 .carousel-indicators li { visibility: hidden; }
 
-.footer {
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-  height: 20px;
+.nav-pills > li.active > a, .nav-pills > li.active > a:hover{
+  background-color: green;
+}
+
+.nav-pills > li > a, .nav-pills > li > a {
+  color: white;
+  font-size: 1.5em;
+  font-weight: bold;
+
+}
+
+.navbar-default .navbar-header .nav > li > a:hover,
+.navbar-default .navbar-header .nav > li.active.open > a:hover,
+.navbar-default .navbar-header .nav > li.active.open > ul > li > a:hover,
+.navbar-default .navbar-header .nav > li.open > a:hover,
+.navbar-default .navbar-header .nav > li.open > ul a:hover,
+.navbar-default .navbar-header .nav > li.open > a,
+.navbar-default .navbar-header .nav > li.open > ul a,
+
+{
+  background-color: #663300;
+  border-color: #663300;
 }
