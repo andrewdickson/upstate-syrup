@@ -1,0 +1,16 @@
+<p id="notice"><%= notice %></p>
+
+<%= @slide_show_item.image %>
+<p>
+  <%= image_tag @slide_show_item.image %>
+</p>
+
+
+<p>
+  <b>User:</b>
+  <%= @slide_show_item.user_id %>
+</p>
+
+
+<%= link_to 'Edit', edit_slide_show_item_path(@slide_show_item) %> |
+<%= link_to 'Back', slide_show_items_path %>

@@ -1,4 +1,7 @@
 KraegerSyrup::Application.routes.draw do
+  resources :slide_show_items
+
+
   root to: 'home#home'
   get '/' => 'home#home', as: 'home'
   get '/about' => 'home#about', as: 'about'

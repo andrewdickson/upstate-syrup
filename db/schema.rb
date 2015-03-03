@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20150303153339) do
+ActiveRecord::Schema.define(:version => 20150303205037) do
 
   create_table "messages", :force => true do |t|
     t.string   "email"
@@ -19,6 +19,19 @@ ActiveRecord::Schema.define(:version => 20150303153339) do
     t.text     "message"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+  end
+
+  create_table "slide_show_items", :force => true do |t|
+    t.string   "name"
+    t.string   "alternate_text"
+    t.integer  "user_id"
+    t.datetime "created_at",         :null => false
+    t.datetime "updated_at",         :null => false
+    t.string   "image_file_name"
+    t.string   "image_content_type"
+    t.integer  "image_file_size"
+    t.datetime "image_updated_at"
+    t.string   "caption"
   end
 
 end
