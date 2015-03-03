@@ -2,48 +2,75 @@
 
 <div class="row">
 
-  <div class="col-lg-5">
-    <form name="sentMessage" class="well" id="contactForm"  novalidate>
+  <div class="col-lg-5 col-md-6 col-sm-10">
+    <%= form_for message, url: create_message_path, remote: true do |f| %>
+    <div class="well">
       <legend>Contact</legend>
       <div class="control-group">
         <div class="controls">
-          <input type="text" class="form-control"
+          <%= f.text_field :name, placeholder: 'Full Name', class: 'form-control', 'data-validation-required-message'=> 'Please enter your name',
+                           required: true, maxlength: 255 %>
+          <!--<input type="text" class="form-control"
                  placeholder="Full Name" id="name" required
-                 data-validation-required-message="Please enter your name" />
+                 data-validation-required-message="Please enter your name" />-->
           <p class="help-block"></p>
         </div>
       </div>
       <div class="control-group">
         <div class="controls">
-          <input type="email" class="form-control" placeholder="Email"
+          <%= f.text_field :email, placeholder: 'Email', class: 'form-control', 'data-validation-required-message'=> 'Please enter your email',
+                           required: true, maxlength: 255 %>
+          <!--<input type="email" class="form-control" placeholder="Email"
                  id="email" required
-                 data-validation-required-message="Please enter your email" />
+                 data-validation-required-message="Please enter your email" />-->
         </div>
       </div>
       <br/>
 
       <div class="control-group">
         <div class="controls">
-          <textarea rows="10" cols="100" class="form-control"
-                    placeholder="Message" id="message" required
-                    data-validation-required-message="Please enter your message" minlength="5"
+          <%= f.text_area :message, rows: '10', cols: '10', class: 'form-control', placeholder: 'Message', required: true,
+                          'data-validation-required-message'=>"Please enter your message", maxlength: '9999', style: 'resize:none' %>
+          <!--<textarea rows="10" cols="100" class="form-control"
+                    placeholder="Message" id="message" required minlength="5"
                     data-validation-minlength-message="Min 5 characters"
-                    maxlength="999" style="resize:none"></textarea>
+                    maxlength="999" style="resize:none"></textarea>-->
         </div>
       </div>
-      <div id="success"> </div> <!-- For success/fail messages -->
+
+      <div id="success">
+        <% if message.errors.any? %>
+            <div id="error_explanation">
+              <h2><%= pluralize(message.errors.count, "error") %> prohibited this message from being sent:</h2>
+
+              <ul>
+                <% message.errors.full_messages.each do |msg| %>
+                    <li><%= msg %></li>
+                <% end %>
+              </ul>
+            </div>
+        <% end %>
+      </div>
+
       <br/>
-      <button type="submit" class="btn btn-primary pull-right">Send</button><br />
-    </form>
+
+      <%#= f.submit content_tag(:span, 'Send', class: 'glyphicon glyphicon-envelope'), class: '', id: 'contact_send_btn' %>
+      <button type="submit" class="btn btn-primary btn-success pull-right id=contact_send_btn"><span class="glyphicon glyphicon-envelope"> </span> Send</button>
+
+
+      <br/>
+      <br/>
+    </div>
+    <% end %>
   </div>
 
-  <div class="col-lg-1"></div>
+  <div class="col-lg-1 col-md-1 col-sm-2"></div>
 
-  <div class="col-lg-5">
+  <div class="col-lg-5 col-md-5 col-sm-12">
     <div id="map_canvas" style='width: 750px; height: 650px;'></div>
   </div>
 
-  <div class="col-lg-1"></div>
+  <div class="col-lg-1 col-md-0 col-sm-0"></div>
 
 </div>
 
