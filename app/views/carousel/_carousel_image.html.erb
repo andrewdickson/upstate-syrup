@@ -1,0 +1,12 @@
+<% active||= false %>
+<% size||= false %>
+<% alt||= file %>
+
+
+<div class="item <%= 'active' if active %>">
+<% if size %>
+    <%= image_tag image, size: size, alt: alt, class: "img-responsive center-block" %>
+<% else %>
+  <%= image_tag image, alt: alt, class: "img-responsive center-block" %>
+<% end %>
+</div>

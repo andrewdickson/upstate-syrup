@@ -1,16 +1,30 @@
-html, body {
-  height: 100%;
-  margin: 0;
-  padding: 0;
-}
 
+/* Sticky footer styles
+-------------------------------------------------- */
+html {
+  position: relative;
+  min-height: 100%;
+}
 body {
+  /* Margin bottom by footer height */
+  margin-bottom: 25px;
   font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
   font-weight: 300;
 }
+footer.footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  /* Set the fixed height of the footer here */
+  height: 25px;
+  background-color: lightgray;
+  padding-top: 2px;
+  //background-image: image-url("woods.jpg");
+  background-color: #ffffff;
+}
 
 nav{
-  background-image: image-url("header-woods.png");
+  background-image: image-url("woods.jpg");
 }
 
 .navbar-header .navbar-brand{

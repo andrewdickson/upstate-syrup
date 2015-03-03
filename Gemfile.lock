@@ -28,8 +28,13 @@ GEM
     activesupport (3.2.21)
       i18n (~> 0.6, >= 0.6.4)
       multi_json (~> 1.0)
+    addressable (2.3.5)
     arel (3.0.3)
+    better_errors (1.1.0)
+      coderay (>= 1.0.0)
+      erubis (>= 2.6.6)
     builder (3.0.4)
+    coderay (1.1.0)
     coffee-rails (3.2.2)
       coffee-script (>= 2.2.0)
       railties (~> 3.2.0)
@@ -38,7 +43,12 @@ GEM
       execjs
     coffee-script-source (1.9.0)
     commonjs (0.2.7)
+    daemons (1.1.9)
     erubis (2.7.0)
+    eventmachine (1.0.3-x86-mingw32)
+    exception_notification (4.0.1)
+      actionmailer (>= 3.0.4)
+      activesupport (>= 3.0.4)
     execjs (2.2.2)
     gmaps4rails (2.1.2)
     hike (1.2.3)
@@ -48,6 +58,8 @@ GEM
       railties (>= 3.0, < 5.0)
       thor (>= 0.14, < 2.0)
     json (1.8.2)
+    launchy (2.4.2)
+      addressable (~> 2.3)
     less (2.5.0)
       commonjs (~> 0.2.7)
     less-rails (2.5.0)
@@ -55,6 +67,8 @@ GEM
       less (~> 2.5.0)
     less-rails-bootstrap (3.1.1.1)
       less-rails (~> 2.5.0)
+    letter_opener (1.2.0)
+      launchy (~> 2.2)
     mail (2.5.4)
       mime-types (~> 1.16)
       treetop (~> 1.4.8)
@@ -103,6 +117,10 @@ GEM
       ref
     therubyracer (0.11.0beta1-x86-mingw32)
       ref
+    thin (1.6.1)
+      daemons (>= 1.0.9)
+      eventmachine (>= 1.0.0)
+      rack (>= 1.0.0)
     thor (0.19.1)
     tilt (1.4.1)
     treetop (1.4.15)
@@ -119,15 +137,20 @@ PLATFORMS
   x86-mingw32
 
 DEPENDENCIES
+  better_errors
   coffee-rails (~> 3.2.1)
+  exception_notification
   gmaps4rails
   jquery-rails
   less-rails
   less-rails-bootstrap
+  letter_opener
+  mail
   rails (~> 3.2)
   rake (= 10.1.0)
   sass-rails (~> 3.2.3)
   sqlite3
   therubyracer
+  thin
   uglifier (>= 1.0.3)
   underscore-rails

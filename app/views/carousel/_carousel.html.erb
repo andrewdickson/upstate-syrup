@@ -1,0 +1,49 @@
+
+
+<div id="myCarousel" class="carousel slide" data-ride="carousel" data-interval="false">
+  <!-- Indicators -->
+  <ol class="carousel-indicators">
+    <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+    <li data-target="#myCarousel" data-slide-to="1"></li>
+    <li data-target="#myCarousel" data-slide-to="2"></li>
+    <li data-target="#myCarousel" data-slide-to="3"></li>
+  </ol>
+
+  <div class="carousel-inner" role="listbox">
+
+    <%= render 'carousel/carousel_image', image: 'farm2.jpg', size: '397x300', alt: 'Farm', active: true %>
+
+    <%= render 'carousel/carousel_image', image: 'sugarbush2.jpg', alt: 'Sugar Bush' %>
+
+    <%= render 'carousel/carousel_image', image: 'sugarbush.jpg', size: '458x300', alt: 'Sugar Bush' %>
+
+    <%= render 'carousel/carousel_image', image: 'waffles1.jpg', size: '450x300', alt: 'Waffles' %>
+
+    <%= render 'carousel/carousel_image', image: 'waffles2.jpg', alt: 'Waffles' %>
+
+    <%= render 'carousel/carousel_image', image: 'waffles3.jpg', alt: 'Waffles' %>
+
+    <%= render 'carousel/carousel_image', image: 'syrup5.jpg', size: '449x300', alt: 'Maple Syrup' %>
+
+    <%= render 'carousel/carousel_image', image: 'syrup3.jpg', size: '182x300', alt: 'Maple Syrup' %>
+
+    <%= render 'carousel/carousel_image', image: 'pancake1.jpg', size: '569x300', alt: 'Pancakes' %>
+
+    <%= render 'carousel/carousel_image', image: 'pancake2.jpg', alt: 'Pancakes' %>
+
+    <%= render 'carousel/carousel_image', image: 'pancake3.jpg', size: '450x300', alt: 'Pancakes' %>
+
+    <%= render 'carousel/carousel_image', image: 'tree1.jpg', size: '514x300', alt: 'Maple Tree' %>
+
+  </div>
+
+  <!-- Left and right controls -->
+  <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+    <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+    <span class="sr-only">Previous</span>
+  </a>
+  <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+    <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+    <span class="sr-only">Next</span>
+  </a>
+</div>

@@ -1,0 +1,14 @@
+development:
+  from: upstatesyrup@gmail.com
+  to: upstatesyrup@gmail.com
+  bcc: upstatesyrup@gmail.com
+
+test:
+  from: upstatesyrup@gmail.com
+  to: upstatesyrup@gmail.com
+  bcc: upstatesyrup@gmail.com
+
+production:
+  from: upstatesyrup@gmail.com
+  to: upstatesyrup@gmail.com
+  bcc: upstatesyrup@gmail.com
