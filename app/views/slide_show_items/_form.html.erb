@@ -23,7 +23,11 @@
         <span class="btn btn-primary btn-file">Upload Picture <%= f.file_field :image, class: 'file' %></span>
         <br/><br/>
         <div class="upload-preview">
-          <img id="test" />
+          <% if slide_show_item.new_record? || !slide_show_item.image %>
+            <img id="test" />
+          <% else %>
+            <%= image_tag slide_show_item.image, id: 'test' %>
+          <% end %>
         </div>
       </div>
 

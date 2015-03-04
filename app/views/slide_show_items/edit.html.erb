@@ -1,6 +1,10 @@
-<h1>Editing slide_show_item</h1>
+<div class="row">
+  <ol class="breadcrumb">
+    <li><%= link_to("Home", root_path) %></li>
+    <li><%= link_to("Pictures", slide_show_items_path) %></li>
+    <li class="active">Edit Picture</li>
+  </ol>
+</div>
 
-<%= render 'form' %>
+<%= render 'form', slide_show_item: @slide_show_item %>
 
-<%= link_to 'Show', @slide_show_item %> |
-<%= link_to 'Back', slide_show_items_path %>

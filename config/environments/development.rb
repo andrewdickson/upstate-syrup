@@ -38,19 +38,19 @@ KraegerSyrup::Application.configure do
       :address              => "smtp.gmail.com",
       :port                 => 587,
       :domain               => "gmail.com",
-      :user_name            => "upstatesyrup@gmail.com",
-      :password             => "ffvcx2324",
+      :user_name            => "upstatesyrupcontact@gmail.com",
+      :password             => "snowmore23",
       :authentication       => 'plain',
       :enable_starttls_auto => true
   }
 
-  #config.action_mailer.default_url_options = { :host => 'localhost:3000' }
   config.action_mailer.raise_delivery_errors = true
   config.action_mailer.perform_deliveries = true
 
-  ENV['system_email_from'] = 'upstatesyrup@gmail.com' #todo: change to noreply@upstatesyrup.com
+  ENV['system_email_from'] = 'upstatesyrupcontact@gmail.com' #todo: change to noreply@upstatesyrup.com
   ENV['feedback_email'] ='upstatesyrup@gmail.com'
   ENV['feedback_email_bcc'] = 'andrewdickson23@gmail.com'
 
-  Paperclip.options[:command_path] = 'C:\Program Files\ImageMagick-6.9.0-Q16'
+  #ENV['platform'] = RUBY_PLATFORM
+  Paperclip.options[:command_path] = 'C:\Program Files\ImageMagick-6.9.0-Q16' if RUBY_PLATFORM!='x86_64-linux'
 end

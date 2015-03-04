@@ -1,0 +1,36 @@
+<div class="row ">
+  <div class="table-responsive">
+    <table class="table table-hover">
+      <tr>
+        <th>#</th>
+        <th>Name</th>
+        <th>Created at</th>
+        <th>Caption</th>
+        <th>Thumbnail</th>
+        <th></th>
+        <th></th>
+        <th></th>
+      </tr>
+      <% slide_show_items.sort_by{|x| x.position}.each do |ssi| %>
+          <tr data-link="<%= edit_slide_show_item_path(ssi) %>">
+            <td class="hidden-xs position"><%= ssi.position %></td>
+            <td><%= ssi.name %></td>
+            <td class="hidden-xs"><%= time_ago_in_words(ssi.created_at) + ' ago' %></td>
+            <td><%= ssi.caption %></td>
+            <td><%= image_tag ssi.image, style: 'max-height: 100px; max-width: 200px;' %></td>
+            <td>
+              <%= link_to( content_tag(:span,'', class: 'glyphicon glyphicon-arrow-up btn-lg', 'aria-hidden' => true), '#up', class: 'move up', data: {url: slide_show_item_path(ssi, move: 'up') }) if ssi.position != 1 %>
+              <%= link_to(content_tag(:span,'', class: 'glyphicon glyphicon-arrow-down btn-lg', 'aria-hidden' => true), '#down', class: 'move down', data: {url: slide_show_item_path(ssi, move: 'down') }) if ssi.position != @slide_show_items.count %>
+            </td>
+            <td>
+
+            </td>
+            <td>
+              <%= link_to content_tag(:span,'', class: 'glyphicon glyphicon-remove btn-lg', 'aria-hidden' => true),
+                          '#', class: 'remove', data: { url: slide_show_item_path(ssi), name: ssi.name } %>
+            </td>
+          </tr>
+      <% end %>
+    </table>
+  </div>
+</div>

@@ -10,30 +10,9 @@
   </ol>
 
   <div class="carousel-inner" role="listbox">
-
-    <%= render 'carousel/carousel_image', image: 'farm2.jpg', size: '397x300', alt: 'Farm', active: true %>
-
-    <%= render 'carousel/carousel_image', image: 'sugarbush2.jpg', alt: 'Sugar Bush' %>
-
-    <%= render 'carousel/carousel_image', image: 'sugarbush.jpg', size: '458x300', alt: 'Sugar Bush' %>
-
-    <%= render 'carousel/carousel_image', image: 'waffles1.jpg', size: '450x300', alt: 'Waffles' %>
-
-    <%= render 'carousel/carousel_image', image: 'waffles2.jpg', alt: 'Waffles' %>
-
-    <%= render 'carousel/carousel_image', image: 'waffles3.jpg', alt: 'Waffles' %>
-
-    <%= render 'carousel/carousel_image', image: 'syrup5.jpg', size: '449x300', alt: 'Maple Syrup' %>
-
-    <%= render 'carousel/carousel_image', image: 'syrup3.jpg', size: '182x300', alt: 'Maple Syrup' %>
-
-    <%= render 'carousel/carousel_image', image: 'pancake1.jpg', size: '569x300', alt: 'Pancakes' %>
-
-    <%= render 'carousel/carousel_image', image: 'pancake2.jpg', alt: 'Pancakes' %>
-
-    <%= render 'carousel/carousel_image', image: 'pancake3.jpg', size: '450x300', alt: 'Pancakes' %>
-
-    <%= render 'carousel/carousel_image', image: 'tree1.jpg', size: '514x300', alt: 'Maple Tree' %>
+    <% slide_show_items.each do |ssi| %>
+        <%= render 'carousel/carousel_image', image: ssi.image_file_name, alt: ssi.alternate_text || ssi.name, active: ssi.position == 1 %>
+    <% end %>
 
   </div>
 

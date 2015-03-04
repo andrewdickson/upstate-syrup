@@ -1,10 +1,12 @@
 class HomeController < ApplicationController
 
   def home
-     render 'home'
+    @slide_show_items = SlideShowItem.order('position asc')
+    render 'home'
   end
 
   def about
+    @slide_show_items = SlideShowItem.order('position asc')
     render 'about'
   end
 

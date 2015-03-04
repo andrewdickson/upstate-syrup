@@ -1,33 +1,31 @@
-<h2>Slideshow Items</h2>
+<%= javascript_include_tag 'slide_show_items' %>
+
+<div class="row">
+  <ol class="breadcrumb">
+    <li><%= link_to("Home", root_path) %></li>
+    <li class="active">Pictures</li>
+  </ol>
+</div>
+
+<br/>
+
+<div class="row">
+  <div class="col-xs-12">
+    <a class="btn btn-success" style="color:white;" href="<%= new_slide_show_item_path %>">New Picture</a>
+  </div>
+</div>
+
+<br/>
+
+<div class="row">
+  <div class="col-xs-12 col-md-9">
+    <div id="pictures" class="top5">
+
+    <%= render 'slide_show_items', slide_show_items: @slide_show_items %>
+
+    </div>
+  </div>
+</div>
 
 
-
-<table>
-  <tr>
-    <th>Name</th>
-    <th>Path</th>
-    <th>Image</th>
-    <th>Caption</th>
-    <th>User</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
-
-<% @slide_show_items.each do |slide_show_item| %>
-  <tr>
-    <td><%= slide_show_item.name %></td>
-    <td><%= slide_show_item.image %></td>
-    <td><%= image_tag slide_show_item.image %></td>
-    <td><%= slide_show_item.caption %></td>
-    <td><%= slide_show_item.user_id %></td>
-    <td><%= link_to 'Show', slide_show_item %></td>
-    <td><%= link_to 'Edit', edit_slide_show_item_path(slide_show_item) %></td>
-    <td><%= link_to 'Destroy', slide_show_item, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-  </tr>
-<% end %>
-</table>
-
-<br />
-
-<%= link_to 'New Slide show item', new_slide_show_item_path %>
+<%#= render 'modalNew' %>

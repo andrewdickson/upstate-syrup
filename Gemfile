@@ -16,8 +16,9 @@ gem 'exception_notification'
 gem 'underscore-rails'
 gem 'gmaps4rails'
 
-
 gem "paperclip", "~> 3.4.2"
+
+gem 'acts_as_list'
 
 # Gems used only for assets and not required
 # in production environments by default.

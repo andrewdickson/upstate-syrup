@@ -7,6 +7,7 @@ class SlideShowItemsController < ApplicationController
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @slide_show_items }
+      format.js { render 'index' }
     end
   end
 
@@ -44,7 +45,7 @@ class SlideShowItemsController < ApplicationController
 
     respond_to do |format|
       if @slide_show_item.save
-        format.html { redirect_to @slide_show_item, notice: 'Slide show item was successfully created.' }
+        format.html { redirect_to slide_show_items_path, notice: 'Slide show item was successfully created.' }
         format.json { render json: @slide_show_item, status: :created, location: @slide_show_item }
       else
         format.html { render action: "new" }
@@ -58,10 +59,19 @@ class SlideShowItemsController < ApplicationController
   def update
     @slide_show_item = SlideShowItem.find(params[:id])
 
+    if params[:move]
+      @slide_show_item.position = @slide_show_item.position + (params[:move] == 'up' ? -1 : 1)
+      @slide_show_item.save
+    end
+
     respond_to do |format|
       if @slide_show_item.update_attributes(params[:slide_show_item])
-        format.html { redirect_to @slide_show_item, notice: 'Slide show item was successfully updated.' }
+        format.html { redirect_to slide_show_items_path, notice: 'Slide show item was successfully updated.' }
         format.json { head :no_content }
+        format.js {
+          @slide_show_items = SlideShowItem.order('position asc')
+
+          render 'index'}
       else
         format.html { render action: "edit" }
         format.json { render json: @slide_show_item.errors, status: :unprocessable_entity }
@@ -78,6 +88,10 @@ class SlideShowItemsController < ApplicationController
     respond_to do |format|
       format.html { redirect_to slide_show_items_url }
       format.json { head :no_content }
+      format.js {
+        @slide_show_items = SlideShowItem.order('position asc')
+        render 'index'
+      }
     end
   end
 end
