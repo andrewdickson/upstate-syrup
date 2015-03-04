@@ -1,5 +1,7 @@
 <%= javascript_include_tag 'slide_show_items' %>
 
+
+
 <div class="row">
   <ol class="breadcrumb">
     <li><%= link_to("Home", root_path) %></li>
@@ -11,7 +13,7 @@
 
 <div class="row">
   <div class="col-xs-12">
-    <a class="btn btn-success" style="color:white;" href="<%= new_slide_show_item_path %>">New Picture</a>
+    <a class="btn btn-success" style="color:white;" href="<%= new_picture_path %>">New Picture</a>
   </div>
 </div>
 
@@ -27,5 +29,33 @@
   </div>
 </div>
 
+<br/>
+<br/>
 
-<%#= render 'modalNew' %>
+<div class="well">
+   <h3>Slideshow Settings</h3>
+  <br/>
+    <%= form_tag '/update_settings', class: 'form-horizontal', role: 'form' do |f| %>
+
+      <div class="form-inline">
+        <label style="text-decoration: underline;">Max Height</label>
+        <%= number_field_tag 'max-height', @settings['max-height'], class: 'form-control' %>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <label>Max Height</label>
+        <%= number_field_tag 'min-height', @settings['min-height'], class: 'form-control' %>
+      </div>
+
+    <br/><br/>
+
+    <div class="form-inline">
+      <label>Max Width</label>
+      <%= number_field_tag 'max-width', @settings['max-width'], class: 'form-control' %>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      <label>Min Height</label>
+      <%= number_field_tag 'min-width', @settings['min-width'], class: 'form-control' %>
+    </div>
+
+    <br/><br/>
+    <%= submit_tag 'Update Settings', class: 'btn btn-default' %>
+  <% end %>
+</div>

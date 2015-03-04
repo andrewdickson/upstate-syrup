@@ -51,8 +51,16 @@ $(document).ready(function(){
         };
 
         reader.readAsDataURL(file);
-        $('img#test').css('max-height', '300px');
-        $('img#test').css('max-width', '2000px');
+        var max_height = $('#slideshow_form').data('max-height');
+        var max_width = $('#slideshow_form').data('max-width');
+        var min_width = $('#slideshow_form').data('min-width');
+        var min_height = $('#slideshow_form').data('min-height');
+
+
+        $('img#test').css('max-height', max_height + 'px');
+        $('img#test').css('max-width', max_width + 'px');
+        $('img#test').css('min-height', min_height + 'px');
+        $('img#test').css('min-width', min_width + 'px');
     });
 
     setIndexEvents();

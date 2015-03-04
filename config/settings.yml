@@ -1,0 +1,11 @@
+---
+development:
+  max-height: '400'
+  min-height: '300'
+  min-width: '100'
+  max-width: '1980'
+production:
+  max-height: 300
+  min-height: 300
+  min-width: 100
+  max-width: 1980

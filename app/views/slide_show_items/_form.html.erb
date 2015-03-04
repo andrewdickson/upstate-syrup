@@ -1,6 +1,7 @@
 <%= javascript_include_tag 'slide_show_items' %>
 
-<div class="well" id="slideshow_form">
+<div class="well" id="slideshow_form" data-max-height="<%= SlideShowItem.max_height %>" data-min-height="<%= SlideShowItem.min_height %>"
+     data-max-width="<%= SlideShowItem.max_width %>" data-min-width="<%= SlideShowItem.min_width %>">
     <%= form_for(slide_show_item) do |f| %>
       <% if slide_show_item.errors.any? %>
         <div id="error_explanation">
@@ -41,7 +42,7 @@
       <div class="form-group">
         <h4>Caption</h4>
         <label class="hidden" for="caption">Caption</label>
-        <%= f.text_area :caption, class: 'form-control', maxlength: 255, cols: '40', rows: '3' %>
+        <%= f.text_area :caption, class: 'form-control', maxlength: 255, cols: '40', rows: '3', placeholder: 'Optional' %>
       </div>
 
       <div class="actions">

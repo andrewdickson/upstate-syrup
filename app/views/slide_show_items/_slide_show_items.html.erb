@@ -12,7 +12,7 @@
         <th></th>
       </tr>
       <% slide_show_items.sort_by{|x| x.position}.each do |ssi| %>
-          <tr data-link="<%= edit_slide_show_item_path(ssi) %>">
+          <tr data-link="<%= edit_picture_path(ssi.id) %>">
             <td class="hidden-xs position"><%= ssi.position %></td>
             <td><%= ssi.name %></td>
             <td class="hidden-xs"><%= time_ago_in_words(ssi.created_at) + ' ago' %></td>
