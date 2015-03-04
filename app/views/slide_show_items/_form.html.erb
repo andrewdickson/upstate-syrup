@@ -1,7 +1,7 @@
 <%= javascript_include_tag 'slide_show_items' %>
 
-<div class="well" id="slideshow_form" data-max-height="<%= SlideShowItem.max_height %>" data-min-height="<%= SlideShowItem.min_height %>"
-     data-max-width="<%= SlideShowItem.max_width %>" data-min-width="<%= SlideShowItem.min_width %>">
+<div class="well" id="slideshow_form" data-max-height="<%= @settings['max_height'] %>" data-min-height="<%= @settings['min_height'] %>"
+     data-max-width="<%= @settings['max_width'] %>" data-min-width="<%= @settings['min_width'] %>">
     <%= form_for(slide_show_item) do |f| %>
       <% if slide_show_item.errors.any? %>
         <div id="error_explanation">
@@ -18,9 +18,6 @@
         <%= hidden_field_tag 'new_record', slide_show_item.new_record? %>
 
       <div class="form-group">
-        <!--<h4>Picture</h4>
-        <label class="hidden" for="image">Picture</label>-->
-        <%#= f.file_field :image %>
         <span class="btn btn-primary btn-file">Upload Picture <%= f.file_field :image, class: 'file' %></span>
         <br/><br/>
         <div class="upload-preview">

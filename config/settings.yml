@@ -4,8 +4,12 @@ development:
   min-height: '300'
   min-width: '100'
   max-width: '1980'
+  home: 'To order the best syrup you ever tasted:\nInstructions to order syrup'
+  about: 'test'
 production:
-  max-height: 300
-  min-height: 300
-  min-width: 100
-  max-width: 1980
+  max-height: '300'
+  min-height: '300'
+  min-width: '100'
+  max-width: '1980'
+  home: 'To order the best syrup you ever tasted:\nInstructions to order syrup'
+  about: 'test'

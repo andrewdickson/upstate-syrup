@@ -8,12 +8,12 @@ function setIndexEvents(){
                 dataType: "script",
                 data: {"_method": "delete"},
                 complete: function () {
+                    setIndexEvents();
                 }
             });
         }
         event.stopPropagation();
     });
-
 
     $('a.move').click(function(event){
         var a = $(this)
@@ -29,7 +29,6 @@ function setIndexEvents(){
         });
         event.stopPropagation();
     });
-
 
     $("tr[data-link]").click(function() {
         window.location = this.dataset.link;

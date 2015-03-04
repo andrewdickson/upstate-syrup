@@ -20,6 +20,8 @@ gem "paperclip", "~> 3.4.2"
 
 gem 'acts_as_list'
 
+gem "ImageResize"
+
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do

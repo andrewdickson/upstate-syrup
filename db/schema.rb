@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20150303210504) do
+ActiveRecord::Schema.define(:version => 20150304154823) do
 
   create_table "messages", :force => true do |t|
     t.string   "email"
@@ -33,6 +33,8 @@ ActiveRecord::Schema.define(:version => 20150303210504) do
     t.datetime "image_updated_at"
     t.string   "caption"
     t.integer  "position"
+    t.integer  "height_in_pixels"
+    t.integer  "width_in_pixels"
   end
 
 end

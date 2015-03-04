@@ -3,9 +3,7 @@ class SlideShowItemsController < ApplicationController
   # GET /slide_show_items.json
   def index
     @slide_show_items = SlideShowItem.all
-
-    settings_file = YAML.load_file("#{Rails.root}/config/settings.yml")
-    @settings = settings_file[Rails.env.to_s]
+    @settings = SettingUtility.settings
 
     respond_to do |format|
       format.html # index.html.erb
@@ -29,7 +27,7 @@ class SlideShowItemsController < ApplicationController
   # GET /slide_show_items/new.json
   def new
     @slide_show_item = SlideShowItem.new
-    @max_height = SlideShowItem.max_height
+    @settings = SettingUtility.settings
 
     respond_to do |format|
       format.html # new.html.erb
@@ -40,12 +38,15 @@ class SlideShowItemsController < ApplicationController
   # GET /slide_show_items/1/edit
   def edit
     @slide_show_item = SlideShowItem.find(params[:id])
+    @settings = SettingUtility.settings
+
   end
 
   # POST /slide_show_items
   # POST /slide_show_items.json
   def create
     @slide_show_item = SlideShowItem.new(params[:slide_show_item])
+    @slide_show_item.extract_dimensions
 
     respond_to do |format|
       if @slide_show_item.save
@@ -66,6 +67,8 @@ class SlideShowItemsController < ApplicationController
     if params[:move]
       @slide_show_item.position = @slide_show_item.position + (params[:move] == 'up' ? -1 : 1)
       @slide_show_item.save
+    else
+      @slide_show_item.extract_dimensions
     end
 
     respond_to do |format|
@@ -100,15 +103,15 @@ class SlideShowItemsController < ApplicationController
   end
 
   def settings
-    @settings = YAML.load_file("#{Rails.root}/config/settings.yml")
+    @settings = SettingUtility.settings
+    @settings['max-height'] = params['max-height']
+    @settings['max-width'] = params['max-width']
+    @settings['min-height'] = params['min-height']
+    @settings['min-width'] = params['min-width']
 
-    @settings[Rails.env.to_s]['max-height'] = params['max-height']
-    @settings[Rails.env.to_s]['max-width'] = params['max-width']
-    @settings[Rails.env.to_s]['min-height'] = params['min-height']
-    @settings[Rails.env.to_s]['min-width'] = params['min-width']
+    SettingUtility.SaveSettings(@settings)
 
-    File.open("#{Rails.root}/config/settings.yml", 'w') {|f| f.write @settings.to_yaml }
-
+    #File.open("#{Rails.root}/config/settings.yml", 'w') {|f| f.write @settings.to_yaml }
     redirect_to pictures_path
   end
 
