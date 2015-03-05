@@ -1,0 +1,19 @@
+<%#= render 'reviews', reviews: Review.order('position desc') %>
+<% @reviews.each do |review| %>
+    <div class="row well">
+      <%= review.position %>
+      <h4><%= review.name %></h4>
+      <div class="raty-view" data-score=<%= review.rating %>></div>
+      <br/>
+      <p><%= review.comment %></p>
+
+      <%= link_to content_tag(:span,'', class: 'glyphicon glyphicon-remove btn-lg', 'aria-hidden' => true), review_path(review), method: :delete %>
+
+      <% if review.position != 1 %>
+        <%= link_to content_tag(:span,'', class: 'glyphicon glyphicon-arrow-up btn-lg', 'aria-hidden' => true), review_path(review, move: 'up'), class: 'move up', method: :put %>
+      <% end %>
+      <% if review.position != Review.all.count %>
+        <%= link_to content_tag(:span,'', class: 'glyphicon glyphicon-arrow-down btn-lg', 'aria-hidden' => true), review_path(review, move: 'down'), class: 'move down', method: :put %>
+      <% end %>
+    </div>
+<% end %>

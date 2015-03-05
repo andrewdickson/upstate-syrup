@@ -1,15 +1,21 @@
 ---
 development:
+  max-height: '500'
+  min-height: '300'
+  min-width: '100'
+  max-width: '1980'
+  home_heading: To order the best syrup you ever tasted
+  home_p: Instructions to order syrup
+  about_heading: About Kraeger Syrup
+  about_p: Details about how syrup is made, how long, why so good
+  brand: Kraeger Syrup
+production:
   max-height: '400'
   min-height: '300'
   min-width: '100'
   max-width: '1980'
-  home: 'To order the best syrup you ever tasted:\nInstructions to order syrup'
-  about: 'test'
-production:
-  max-height: '300'
-  min-height: '300'
-  min-width: '100'
-  max-width: '1980'
-  home: 'To order the best syrup you ever tasted:\nInstructions to order syrup'
-  about: 'test'
+  home_heading: To order the best syrup you ever tasted
+  home_p: Instructions to order syrup
+  about_heading: About Kraeger Syrup
+  about_p: Details about how syrup is made, how long, why so good
+  brand: Kraeger Syrup

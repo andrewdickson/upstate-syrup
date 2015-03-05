@@ -1,4 +1,7 @@
 KraegerSyrup::Application.routes.draw do
+  resources :reviews
+
+
   resources :slide_show_items
 
   get '/pictures' => 'slide_show_items#index', as: 'pictures'

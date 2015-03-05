@@ -1,0 +1,18 @@
+<% reviews.order('position asc').each do |review| %>
+    <div class="row well">
+        <h4><%= review.name %></h4>
+        <div class="raty-view" data-score=<%= review.rating %>></div>
+        <br/>
+        <p><%= review.comment %></p>
+    </div>
+<% end %>
+<br/>
+<div class="row">
+  <a id="toggleReviewForm" class="btn btn-default">Leave a Review</a>
+</div>
+
+<br/>
+
+<div id="review_form" style="display:none;" class="row">
+  <%= render 'reviews/form', review: Review.new %>
+</div>

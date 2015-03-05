@@ -108,6 +108,11 @@ class SlideShowItemsController < ApplicationController
     @settings['max-width'] = params['max-width']
     @settings['min-height'] = params['min-height']
     @settings['min-width'] = params['min-width']
+    @settings['brand'] = params['brand']
+    @settings['about_heading'] = params['about_heading']
+    @settings['home_heading'] = params['home_heading']
+    @settings['about_heading'] = params['about_p']
+    @settings['home_p'] = params['home_p']
 
     SettingUtility.SaveSettings(@settings)
 

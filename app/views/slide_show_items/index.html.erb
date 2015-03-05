@@ -55,7 +55,36 @@
       <%= number_field_tag 'min-width', @settings['min-width'], class: 'form-control' %>
     </div>
 
-    <br/><br/>
+    <br/><br/><br/>
+
+      <div class="form-group">
+        <label>Brand</label>
+        <%= text_field_tag 'brand', @settings['brand'], class: 'form-control' %>
+      </div>
+
+      <div class="form-group">
+        <label>Home Heading</label>
+        <%= text_area_tag 'home_heading', @settings['home_heading'], class: 'form-control' %>
+      </div>
+
+      <div class="form-group">
+        <label>Home Paragraph</label>
+        <%= text_area_tag 'home_p', @settings['home_p'], class: 'form-control' %>
+      </div>
+
+      <div class="form-group">
+        <label>About Heading</label>
+        <%= text_area_tag 'about_heading', @settings['about_heading'], class: 'form-control' %>
+      </div>
+
+
+      <div class="form-group">
+        <label>About Paragraph</label>
+        <%= text_area_tag 'about_p', @settings['about_p'], class: 'form-control' %>
+      </div>
+
+
+      <br/>
     <%= submit_tag 'Update Settings', class: 'btn btn-default' %>
   <% end %>
 </div>

@@ -5,6 +5,10 @@ class SettingUtility
     return settings_file[Rails.env.to_s]
   end
 
+  def self.brand
+    return SettingUtility.settings['brand']
+  end
+
   def self.max_height
     return SettingUtility.settings['max-height']
   end
@@ -21,8 +25,31 @@ class SettingUtility
     return SettingUtility.settings['min-width']
   end
 
+  def self.about_heading
+    return SettingUtility.settings['about_heading']
+  end
+
+  def self.about_p
+    return SettingUtility.settings['about_p']
+  end
+
+  def self.home_heading
+    return SettingUtility.settings['home_heading']
+  end
+
+  def self.home_p
+    return SettingUtility.settings['home_p']
+  end
+
+  def self.setting(key)
+    return SettingUtility.settings[key]
+  end
+
+
   def self.SaveSettings(new_settings)
-    File.open("#{Rails.root}/config/settings.yml", 'w') {|f| f.write new_settings.to_yaml }
+    settings_file = YAML.load_file("#{Rails.root}/config/settings.yml")
+    settings_file[Rails.env] = new_settings
+    File.open("#{Rails.root}/config/settings.yml", 'w') {|f| f.write settings_file.to_yaml }
   end
 
 end

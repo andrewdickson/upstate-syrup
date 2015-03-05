@@ -53,4 +53,5 @@ KraegerSyrup::Application.configure do
 
   #ENV['platform'] = RUBY_PLATFORM
   Paperclip.options[:command_path] = 'C:\Program Files\ImageMagick-6.9.0-Q16' if RUBY_PLATFORM!='x86_64-linux'
+  ENV['Path'] = '/path/to/ImageMagick/bin'
 end

@@ -15,5 +15,24 @@
 //= require twitter/bootstrap
 //= require underscore
 //= require gmaps/google
+//= require jquery.raty
 
 
+$(document).ready(function(event){
+    $('.raty-view').raty({
+        readOnly: true,
+       score: function(){
+           return $(this).data('score');
+       }
+    });
+
+    $('.raty-edit').raty({
+        scoreName: 'review[rating]',
+        readOnly: false
+
+    });
+
+    $('#toggleReviewForm').click(function(event){
+        $('#review_form').toggle();
+    });
+});

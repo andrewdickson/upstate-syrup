@@ -11,3 +11,11 @@
   </div>
   <div class="col-xs-3 column"></div>
 </div>
+
+<br/>
+
+<div class="reviews row">
+  <div class="row"><h3><%= SettingUtility.setting('brand') %> Reviews</h3></div>
+
+  <%= render 'reviews/reviews', reviews: Review.order('position desc') %>
+</div>
