@@ -24,9 +24,17 @@ $(document).ready(function(){
             return bounds.extend(marker.getPosition());
         }, new google.maps.LatLngBounds()));
 
-        map.setZoom(8);
+        zoomChangeBoundsListener =
+            google.maps.event.addListenerOnce(map, 'bounds_changed', function(event) {
+                if (this.getZoom()){
+                    this.setZoom(8);
+                }
+            });
+        setTimeout(function(){google.maps.event.removeListener(zoomChangeBoundsListener)}, 2000);
+
 
     });
+
 
 
 

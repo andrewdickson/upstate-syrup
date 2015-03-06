@@ -1,17 +1,11 @@
 
 
 <div id="myCarousel" class="carousel slide" data-ride="carousel" data-interval="false">
-  <!-- Indicators -->
-  <ol class="carousel-indicators">
-    <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-    <li data-target="#myCarousel" data-slide-to="1"></li>
-    <li data-target="#myCarousel" data-slide-to="2"></li>
-    <li data-target="#myCarousel" data-slide-to="3"></li>
-  </ol>
+
 
   <div class="carousel-inner" role="listbox">
     <% slide_show_items.each do |ssi| %>
-        <%= render 'carousel/carousel_image', image: ssi.image_file_name, alt: ssi.alternate_text || ssi.name, active: ssi.position == 1 %>
+        <%= render 'carousel/carousel_image', image: ssi.image.url, alt: ssi.alternate_text || ssi.name, active: ssi.position == 1  %>
     <% end %>
 
   </div>

@@ -46,12 +46,15 @@ class SlideShowItemsController < ApplicationController
   # POST /slide_show_items.json
   def create
     @slide_show_item = SlideShowItem.new(params[:slide_show_item])
-    @slide_show_item.extract_dimensions
+    #@slide_show_item.extract_dimensions
 
     respond_to do |format|
       if @slide_show_item.save
         format.html { redirect_to pictures_path, notice: 'Slide show item was successfully created.' }
         format.json { render json: @slide_show_item, status: :created, location: @slide_show_item }
+        format.js {
+          @new_url = edit_slide_show_item_path(@slide_show_item)
+          render 'create' }
       else
         format.html { render action: "new" }
         format.json { render json: @slide_show_item.errors, status: :unprocessable_entity }

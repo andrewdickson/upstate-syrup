@@ -7,6 +7,10 @@ class SlideShowItem < ActiveRecord::Base
 
   attr_accessible :alternate_text, :name, :user_id, :caption, :dimensions
 
+  def image_path
+    return image.url
+  end
+
 # Retrieves dimensions for image assets
 # @note Do this after resize operations to account for auto-orientation.
   def extract_dimensions

@@ -7,6 +7,6 @@
 <% if size %>
     <%= image_tag image, size: size, alt: alt, class: "img-responsive center-block" %>
 <% else %>
-  <%= image_tag image, alt: alt, class: "img-responsive center-block" %>
+  <%= image_tag image, alt: alt, class: "img-responsive center-block",style: 'max-height: ' + SettingUtility.max_height %>
 <% end %>
 </div>

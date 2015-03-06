@@ -38,6 +38,47 @@ function setIndexEvents(){
 
 $(document).ready(function(){
 
+    var max_height = $('#slideshow_form').data('max-height');
+    var max_width = $('#slideshow_form').data('max-width');
+
+    $('.file-upload').fileupload({
+
+        url: $('#slideshow_form').data('url'),
+        dataType: 'script',
+        disableImageResize: false,
+        imageMaxWidth: max_width,
+        imageMaxHeight: max_height,
+        uploadTemplateId: null,
+        downloadTemplateId: null,
+
+        add: function(e,data){
+            var current_data = $(this);
+            data.process(function(){
+               return current_data.fileupload('process',data);
+            }).done(function(){
+                data.submit();
+            });
+
+        },
+        process: [{
+            action: "load",
+            fileTypes: /^image\/(gif|jp?g)$/,
+            maxFileSize: 20000000},
+            {action: "resize",
+            imageMaxWidth: 1500,
+            imageMaxHeight: 500},{
+            action: "save"}]
+
+    });
+
+/*    $('img#test').css('max-height', max_height + 'px');
+    $('img#test').css('max-width', max_width + 'px');
+    $('img#test').css('min-height', min_height + 'px');
+    $('img#test').css('min-width', min_width + 'px');
+
+    $('img#test').attr('style', 'max-height: ' + max_height + 'px;');
+
+
     var preview = $(".upload-preview img");
 
     $(".file").change(function(event){
@@ -50,18 +91,21 @@ $(document).ready(function(){
         };
 
         reader.readAsDataURL(file);
-        var max_height = $('#slideshow_form').data('max-height');
-        var max_width = $('#slideshow_form').data('max-width');
-        var min_width = $('#slideshow_form').data('min-width');
-        var min_height = $('#slideshow_form').data('min-height');
+        /*var check = function(condition){
+            if(condition){
+                // run when condition is met
+            }
+            else {
+                setTimeout(check, 1000); // check again in a second
+            }
+        }
 
+        check(true);
+        check(false);
 
-        $('img#test').css('max-height', max_height + 'px');
-        $('img#test').css('max-width', max_width + 'px');
-        $('img#test').css('min-height', min_height + 'px');
-        $('img#test').css('min-width', min_width + 'px');
-    });
+    });*/
 
     setIndexEvents();
+
 
 });

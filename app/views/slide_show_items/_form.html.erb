@@ -1,7 +1,7 @@
 <%= javascript_include_tag 'slide_show_items' %>
 
-<div class="well" id="slideshow_form" data-max-height="<%= @settings['max_height'] %>" data-min-height="<%= @settings['min_height'] %>"
-     data-max-width="<%= @settings['max_width'] %>" data-min-width="<%= @settings['min_width'] %>">
+<div class="well" id="slideshow_form" data-max-height="<%= @settings['max-height'] %>" data-min-height="<%= @settings['min-height'] %>"
+     data-max-width="<%= @settings['max-width'] %>" data-min-width="<%= @settings['min-width'] %>" data-url="<%= slide_show_items_path %>">
     <%= form_for(slide_show_item) do |f| %>
       <% if slide_show_item.errors.any? %>
         <div id="error_explanation">
@@ -18,23 +18,10 @@
         <%= hidden_field_tag 'new_record', slide_show_item.new_record? %>
 
       <div class="form-group">
-        <span class="btn btn-primary btn-file">Upload Picture <%= f.file_field :image, class: 'file' %></span>
-        <br/><br/>
-        <div class="upload-preview">
-          <% if slide_show_item.new_record? || !slide_show_item.image %>
-            <img id="test" />
-          <% else %>
-            <%= image_tag slide_show_item.image, id: 'test' %>
-          <% end %>
-        </div>
-      </div>
-
-      <div class="form-group">
         <h4>Name</h4>
         <label class="hidden" for="name">Name</label>
         <%= f.text_area :name, class: 'form-control', maxlength: 255, cols: '40', rows: '1' %>
       </div>
-      <br/>
 
       <div class="form-group">
         <h4>Caption</h4>
@@ -42,11 +29,40 @@
         <%= f.text_area :caption, class: 'form-control', maxlength: 255, cols: '40', rows: '3', placeholder: 'Optional' %>
       </div>
 
+      <div class="form-group">
+        <span class="btn btn-primary btn-file">Upload Picture <%= f.file_field :image, class: 'file file-upload' %></span>
+        <br/><br/>
+        <div class="upload-preview">
+          <% if slide_show_item.new_record? || !slide_show_item.image %>
+              <img id="test" />
+          <% else %>
+              <%= image_tag slide_show_item.image, id: 'test' %>
+          <% end %>
+        </div>
+      </div>
+
       <div class="actions">
         <%= f.submit 'Submit', class: 'btn btn-success' %>
+
+        <% if slide_show_item.new_record? %>
+            <%= link_to 'Cancel', pictures_path, class: 'btn btn-default pull-right' %>
+        <% else %>
+            <%= link_to 'Delete', slide_show_item_path(slide_show_item), class: 'btn btn-default  pull-right', method: :delete %>
+        <% end %>
+
       </div>
+
+
+
 
     <% end %>
 
 
 </div>
+
+<script id="template-upload" type="text/x-tmpl">
+<div class="upload">
+  {%=o.name%}
+  <div class="progress"><div class="bar" style="width: 0%"></div></div>
+</div>
+</script>

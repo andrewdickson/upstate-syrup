@@ -1,0 +1,5 @@
+<% if @slide_show_item.new_record? %>
+    alert("Failed to upload painting");
+<% else %>
+    window.location.href = "<%= @new_url %>";
+<% end %>

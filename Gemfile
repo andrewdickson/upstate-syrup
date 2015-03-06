@@ -6,7 +6,7 @@ gem 'rake', '10.1.0'
 
 gem 'jquery-rails'
 
-gem 'therubyracer'  #,'=0.12.1' #, :platform => :ruby
+gem 'therubyracer'
 gem 'less-rails'
 gem 'less-rails-bootstrap'
 
@@ -30,6 +30,7 @@ group :assets do
   gem 'sass-rails',   '~> 3.2.3'
   gem 'coffee-rails', '~> 3.2.1'
   gem 'uglifier', '>= 1.0.3'
+  gem 'jquery-fileupload-rails'
 end
 
 group :development do

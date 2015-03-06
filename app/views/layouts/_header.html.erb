@@ -5,7 +5,7 @@
       <%= link_to SettingUtility.setting('brand'), root_path, class: 'navbar-brand syrup' %>
       <%= link_to image_tag('obj-maple-leaf.png', size: '30x45'), root_path, class: 'navbar-brand' %>
 
-      <ul id="pills" class="nav nav-pills pull-right organic" style="">
+      <ul id="pills" class="nav nav-pills pull-right">
         <%= render 'layouts/pill', title: 'Home', action: params[:action], destination: root_path %>
         <%= render 'layouts/pill', title: 'About',action: params[:action], destination: about_path %>
         <%= render 'layouts/pill', title: 'Contact',action: params[:action], destination: contact_path %>
