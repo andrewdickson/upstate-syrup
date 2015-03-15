@@ -1,3 +1,5 @@
+<%= javascript_include_tag 'reviews' %>
+
 <%= form_for review do |f| %>
     <% if review.errors.any? %>
         <div id="error_explanation">
@@ -20,6 +22,19 @@
           <%= f.text_area :comment, required: true, cols: 40, rows: 3, maxlength: 999, class: 'form-control', placeholder: 'Comment'  %>
 
           <br/>
+          <div class="form-group">
+            <span class="btn btn-primary btn-file">Upload Your Picture <%= file_field_tag :image, class: 'file file-upload' %></span>
+            <br/><br/>
+            <div class="upload-preview">
+              <% if review.new_record? || !review.image %>
+                  <%= image_tag 'user-default-100.png', id: 'preview' %>
+              <% else %>
+                  <%= image_tag review.image, id: 'preview' %>
+              <% end %>
+            </div>
+          </div>
+          <br/>
+
           <%= f.submit 'Submit', class: 'btn btn-success' %>
 
         </div>
