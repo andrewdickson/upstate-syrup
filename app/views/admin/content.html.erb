@@ -1,0 +1,56 @@
+<%= content_for :ckeditor do %>
+    <%= javascript_include_tag '/javascripts/ckeditor/ckeditor.js' %>
+    <%= stylesheet_link_tag 'editor' %>
+<% end %>
+
+<div class="row">
+  <ol class="breadcrumb">
+    <li><%= link_to("Admin Hub", admin_path) %></li>
+    <li class="active">Site Content</li>
+  </ol>
+</div>
+
+
+<%= form_tag '/update_settings', class: 'form-horizontal', role: 'form' do |f| %>
+
+    <div class="well">
+
+      <h3>Site Content</h3>
+
+      <div>
+        <label>Brand</label>
+        <%= text_field_tag 'brand', @settings['brand'], class: 'form-control' %>
+      </div>
+      <br/>
+      <br/>
+
+      <div>
+        <label>Home Heading</label>
+        <%= text_field_tag 'home_heading', @settings['home_heading'], class: 'form-control' %>
+      </div>
+      <br/>
+
+      <div>
+        <label>Home Paragraph</label>
+        <%= text_area_tag 'home_p', @settings['home_p'], class: 'form-control rte' %>
+      </div>
+      <br/>
+      <br/>
+
+      <div>
+        <label>About Heading</label>
+        <%= text_field_tag 'about_heading', @settings['about_heading'], class: 'form-control' %>
+      </div>
+      <br/>
+
+
+      <div>
+        <label>About Paragraph</label>
+        <%= text_area_tag 'about_p', @settings['about_p'], class: 'form-control rte' %>
+      </div>
+
+
+      <br/>
+      <%= submit_tag 'Update Settings', class: 'btn btn-default' %>
+    </div>
+<% end %>

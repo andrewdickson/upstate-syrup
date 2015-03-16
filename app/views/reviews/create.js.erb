@@ -1,0 +1,7 @@
+<% if @review.new_record? %>
+    alert("Failed to upload picture");
+<% else %>
+  //  window.location.href = "<%= edit_review_path(@review) %>";
+  $('#review_form').html("<%= j render 'reviews/form', review: @review %>");
+  $('#review_form').data('url', "<%= review_path(@review) %>");
+<% end %>

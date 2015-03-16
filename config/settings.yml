@@ -3,11 +3,11 @@ development:
   max-height: '500'
   min-height: '300'
   min-width: '100'
-  max-width: '1980'
+  max-width: '1900'
   home_heading: To order the best syrup you ever tasted
-  home_p: Instructions to order syrup
+  home_p: ! "<p><strong>Instructions </strong>to order syrup go here</p>\r\n\r\n<p><em>asdfasdfasdfa</em></p>\r\n"
   about_heading: About Kraeger Syrup
-  about_p: Details about how syrup is made, how long, why so good
+  about_p: ! "<p>Details about how syrup is made, how long, why so good</p>\r\n"
   brand: Kraeger Syrup
 production:
   max-height: '400'

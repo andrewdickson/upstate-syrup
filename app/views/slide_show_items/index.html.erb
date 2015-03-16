@@ -2,7 +2,7 @@
 
 <div class="row">
   <ol class="breadcrumb">
-    <li><%= link_to("Home", root_path) %></li>
+    <li><%= link_to("Admin Hub", admin_path) %></li>
     <li class="active">Pictures</li>
   </ol>
 </div>
@@ -20,69 +20,34 @@
 <div class="row">
   <div class="col-xs-12 col-md-9">
     <div id="pictures" class="top5">
-
-    <%= render 'slide_show_items', slide_show_items: @slide_show_items %>
-
+        <%= render 'slide_show_items', slide_show_items: @slide_show_items %>
     </div>
   </div>
 </div>
 
-<br/>
-<br/>
+<br/><br/>
 
 <div class="well">
-   <h3>Slideshow Settings</h3>
+  <%= form_tag '/update_settings', class: 'form-horizontal', role: 'form' do |f| %>
+  <h3>Slideshow Settings</h3>
   <br/>
-    <%= form_tag '/update_settings', class: 'form-horizontal', role: 'form' do |f| %>
-
-      <div class="form-inline">
-        <label style="text-decoration: underline;">Max Height</label>
-        <%= number_field_tag 'max-height', @settings['max-height'], class: 'form-control' %>
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        <label>Max Height</label>
-        <%= number_field_tag 'min-height', @settings['min-height'], class: 'form-control' %>
-      </div>
-
-    <br/><br/>
-
-    <div class="form-inline">
-      <label>Max Width</label>
-      <%= number_field_tag 'max-width', @settings['max-width'], class: 'form-control' %>
-      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-      <label>Min Height</label>
-      <%= number_field_tag 'min-width', @settings['min-width'], class: 'form-control' %>
-    </div>
-
-    <br/><br/><br/>
-
-      <div class="form-group">
-        <label>Brand</label>
-        <%= text_field_tag 'brand', @settings['brand'], class: 'form-control' %>
-      </div>
-
-      <div class="form-group">
-        <label>Home Heading</label>
-        <%= text_area_tag 'home_heading', @settings['home_heading'], class: 'form-control' %>
-      </div>
-
-      <div class="form-group">
-        <label>Home Paragraph</label>
-        <%= text_area_tag 'home_p', @settings['home_p'], class: 'form-control' %>
-      </div>
-
-      <div class="form-group">
-        <label>About Heading</label>
-        <%= text_area_tag 'about_heading', @settings['about_heading'], class: 'form-control' %>
-      </div>
-
-
-      <div class="form-group">
-        <label>About Paragraph</label>
-        <%= text_area_tag 'about_p', @settings['about_p'], class: 'form-control' %>
-      </div>
-
-
+  <div class="form-inline">
+    <label style="text-decoration: underline;">Max Height</label>
+    <%= number_field_tag 'max-height', SettingUtility.setting('max-height'), class: 'form-control' %>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <label>Max Height</label>
+    <%= number_field_tag 'min-height', SettingUtility.setting('min-height'), class: 'form-control' %>
+  </div>
+  <br/>
+  <div class="form-inline">
+    <label>Max Width</label>
+    <%= number_field_tag 'max-width', SettingUtility.setting('max-width'), class: 'form-control' %>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <label>Min Height</label>
+    <%= number_field_tag 'min-width', SettingUtility.setting('min-width'), class: 'form-control' %>
+  </div>
       <br/>
-    <%= submit_tag 'Update Settings', class: 'btn btn-default' %>
-  <% end %>
+      <%= submit_tag 'Update Settings', class: 'btn btn-default' %>
+    <% end %>
 </div>
+

@@ -1,21 +1,23 @@
-<%= render 'carousel/carousel', slide_show_items: @slide_show_items %>
-
-<br/>
-<br/>
+<%#= render 'carousel/carousel', slide_show_items: @slide_show_items %>
 
 <div class="row">
-  <div class="col-xs-3 column"></div>
-  <div class="col-xs-6 column well">
-    <h4><%= SettingUtility.setting('about_heading') %></h4>
-    <p><%= SettingUtility.setting('about_p') %></p>
+  <div class="col-md-7 col-lg-6">
+    <%= image_tag 'sugarbush.jpg', style: 'max-height:400px;' %>
   </div>
-  <div class="col-xs-3 column"></div>
+  <br/>
+  <br/>
+  <div class="col-md-5 col-lg-6 well">
+    <h4><%= SettingUtility.setting('about_heading') %></h4>
+    <p><%= SettingUtility.setting('about_p').html_safe %></p>
+  </div>
 </div>
 
 <br/>
 
-<div class="reviews row">
-  <div class="row"><h3><%= SettingUtility.setting('brand') %> Reviews</h3></div>
+<div class="reviews">
+  <div class="row">
+    <h3><%= SettingUtility.setting('brand') %> Reviews</h3>
+  </div>
 
   <%= render 'reviews/reviews', reviews: Review.order('position desc') %>
 </div>

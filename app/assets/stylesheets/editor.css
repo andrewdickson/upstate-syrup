@@ -1,0 +1,7 @@
+.cke_toolbar{
+	float:right !important;
+}
+
+.cke_top, .cke_bottom, .cke_toolgroup, .cke_combo_button{
+	border: none !important;
+}

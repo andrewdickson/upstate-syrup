@@ -19,6 +19,32 @@
 //= require jquery.raty
 
 
+var ckedits;
+
+function setCkEditors(){
+    ckedits = [];
+    $('.rte').each(function () {
+        setCkEditor(this.id);
+    });
+}
+
+function setCkEditor(id){
+    var ckeditor = CKEDITOR.replace(id);
+    ckeditor.textarea_id = id;
+    ckedits.push(ckeditor);
+    return ckeditor;
+}
+
+//info, warning, danger
+function toast(message, urgency){
+    if(urgency !=' info' && urgency!='danger' && urgency !='warning' && urgency!='success')
+        urgency = 'info';
+
+    $('#alerts').append("<div class='alert alert-" + urgency + " alert-dismissable' role='alert'>" +
+        "<button type=button class='close' data-dismiss='alert' + aria-label='Close'>" +
+        "<span aria-hidden='true'>&times;</span></button>" + message + "</div>");
+}
+
 $(document).ready(function(event){
     $('.raty-view').raty({
         readOnly: true,
@@ -35,5 +61,10 @@ $(document).ready(function(event){
 
     $('#toggleReviewForm').click(function(event){
         $('#review_form').toggle();
+
+        $('html, body').animate({
+            scrollTop: $("#review_name").offset().top
+        }, 0);
     });
+    setCkEditors();
 });

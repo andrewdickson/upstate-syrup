@@ -79,6 +79,7 @@ KraegerSyrup::Application.configure do
       :authentication       => 'plain',
       :enable_starttls_auto => true
   }
+  config.action_mailer.default_url_options = { host: '52.11.59.250' }
 
   config.action_mailer.raise_delivery_errors = true
   config.action_mailer.perform_deliveries = true

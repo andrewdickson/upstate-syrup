@@ -1,8 +1,9 @@
 KraegerSyrup::Application.routes.draw do
+  devise_for :users
+
   resources :reviews
-
-
   resources :slide_show_items
+  resources :messages
 
   get '/pictures' => 'slide_show_items#index', as: 'pictures'
   get '/pictures/:id/edit' => 'slide_show_items#edit', as: 'edit_picture'
@@ -12,7 +13,12 @@ KraegerSyrup::Application.routes.draw do
   get '/' => 'home#home', as: 'home'
   get '/about' => 'home#about', as: 'about'
   get '/contact' => 'home#contact', as: 'contact'
-  post '/create_message' => 'home#create_message', as: 'create_message'
 
-  post '/update_settings' => 'slide_show_items#settings', as: 'update_settings'
+
+  get '/admin' => 'admin#index', as: 'admin'
+  get '/admin/new' => 'admin#new', as: 'new_admin'
+  post '/admin/create' => 'admin#create', as: 'create_admin'
+  get '/admin/content' => 'admin#content', as: 'content'
+  post '/update_settings' => 'admin#update', as: 'update_settings'
+
 end

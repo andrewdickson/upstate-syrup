@@ -1,0 +1,19 @@
+<%= javascript_include_tag 'messages.js' %>
+
+<div class="row">
+  <ol class="breadcrumb">
+    <li><%= link_to("Admin Hub", admin_path) %></li>
+    <li class="active">Messages</li>
+  </ol>
+</div>
+
+<div class="row"><h3>Messages</h3></div>
+<% @messages.each do |message| %>
+    <div class="row well">
+      <h5><%= message.name %> &lt;<%= message.email %>&gt; </h5>
+      <br/>
+      <p><%= message.message %></p>
+      <div class="pull-right"><%= link_to 'Remove', '#Remove', class: 'remove_message', data: {url: message_path(message)} %></div>
+    </div>
+<% end %>
+

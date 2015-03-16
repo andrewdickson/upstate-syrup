@@ -1,0 +1,20 @@
+<div class="row">
+  <div class="col-xs-12">
+    <h3>Admin Hub for <%= SettingUtility.setting('brand') %></h3>
+  </div>
+</div>
+<br/>
+<div class="row">
+  <div class="col-xs-12">
+
+    <ul class="list-group">
+      <li class="list-group-item"><%= link_to 'Slideshow Settings', pictures_path %></li>
+      <li class="list-group-item"><%= link_to 'Add a Picture to Slideshow', new_picture_path %></li>
+      <li class="list-group-item"><%= link_to 'Site Content', content_path %></li>
+      <li class="list-group-item"><%= link_to 'Organize Reviews', reviews_path %></li>
+      <li class="list-group-item"><%= link_to 'View Messages', messages_path %></li>
+      <li class="list-group-item"><%= link_to 'Site Admins', new_admin_path %></li>
+      <li class="list-group-item"><%= link_to 'Logout of Admin', destroy_user_session_path, method: :delete %></li>
+    </ul>
+  </div>
+</div>

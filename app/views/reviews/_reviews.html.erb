@@ -1,9 +1,12 @@
 <% reviews.order('position asc').each do |review| %>
     <div class="row well">
+      <div class="col-xs-4 col-sm-2"><%= image_tag review.image %></div>
+      <div class="col-xs-8 col-sm-10">
         <h4><%= review.name %></h4>
         <div class="raty-view" data-score=<%= review.rating %>></div>
         <br/>
         <p><%= review.comment %></p>
+      </div>
     </div>
 <% end %>
 <br/>
@@ -13,6 +16,6 @@
 
 <br/>
 
-<div id="review_form" style="display:none;" class="row">
+<div id="review_form" style="display:none;" class="row" data-url="<%= reviews_path %>">
   <%= render 'reviews/form', review: Review.new %>
 </div>

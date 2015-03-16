@@ -1,4 +1,6 @@
 class ReviewsController < ApplicationController
+  before_filter :authenticate_user!, except: [:destroy]
+
   # GET /reviews
   # GET /reviews.json
   def index
@@ -41,11 +43,12 @@ class ReviewsController < ApplicationController
   # POST /reviews.json
   def create
     @review = Review.new(params[:review])
-
+    @review.published = false
     respond_to do |format|
       if @review.save
         format.html { redirect_to about_path, notice: 'Review was successfully created.' }
         format.json { render json: @review, status: :created, location: @review }
+        format.js { render 'create' }
       else
         format.html { render action: "new" }
         format.json { render json: @review.errors, status: :unprocessable_entity }
@@ -57,6 +60,7 @@ class ReviewsController < ApplicationController
   # PUT /reviews/1.json
   def update
     @review = Review.find(params[:id])
+    @review.published = true
 
     if params[:move]
       @review.position = @review.position + (params[:move] == 'up' ? -1 : 1)
@@ -65,7 +69,7 @@ class ReviewsController < ApplicationController
 
     respond_to do |format|
       if @review.update_attributes(params[:review])
-        format.html { redirect_to reviews_path, notice: 'Review was successfully updated.' }
+        format.html { redirect_to about_path, notice: 'Review was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }

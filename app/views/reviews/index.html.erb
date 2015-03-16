@@ -1,6 +1,13 @@
-<%#= render 'reviews', reviews: Review.order('position desc') %>
+<div class="row">
+  <ol class="breadcrumb">
+    <li><%= link_to("Admin Hub", admin_path) %></li>
+    <li class="active">Reviews</li>
+  </ol>
+</div>
+
 <% @reviews.each do |review| %>
     <div class="row well">
+      <%= image_tag review.image %>
       <%= review.position %>
       <h4><%= review.name %></h4>
       <div class="raty-view" data-score=<%= review.rating %>></div>

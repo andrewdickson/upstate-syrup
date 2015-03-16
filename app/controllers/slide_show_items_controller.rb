@@ -1,9 +1,10 @@
 class SlideShowItemsController < ApplicationController
+  before_filter :authenticate_user!
+
   # GET /slide_show_items
   # GET /slide_show_items.json
   def index
     @slide_show_items = SlideShowItem.all
-    @settings = SettingUtility.settings
 
     respond_to do |format|
       format.html # index.html.erb
@@ -105,22 +106,5 @@ class SlideShowItemsController < ApplicationController
     end
   end
 
-  def settings
-    @settings = SettingUtility.settings
-    @settings['max-height'] = params['max-height']
-    @settings['max-width'] = params['max-width']
-    @settings['min-height'] = params['min-height']
-    @settings['min-width'] = params['min-width']
-    @settings['brand'] = params['brand']
-    @settings['about_heading'] = params['about_heading']
-    @settings['home_heading'] = params['home_heading']
-    @settings['about_heading'] = params['about_p']
-    @settings['home_p'] = params['home_p']
-
-    SettingUtility.SaveSettings(@settings)
-
-    #File.open("#{Rails.root}/config/settings.yml", 'w') {|f| f.write @settings.to_yaml }
-    redirect_to pictures_path
-  end
 
 end

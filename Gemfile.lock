@@ -33,6 +33,7 @@ GEM
       activerecord (>= 3.0)
     addressable (2.3.5)
     arel (3.0.3)
+    bcrypt-ruby (3.0.1-x86-mingw32)
     better_errors (1.1.0)
       coderay (>= 1.0.0)
       erubis (>= 2.6.6)
@@ -51,6 +52,12 @@ GEM
     coffee-script-source (1.9.0)
     commonjs (0.2.7)
     daemons (1.1.9)
+    devise (3.2.2)
+      bcrypt-ruby (~> 3.0)
+      orm_adapter (~> 0.1)
+      railties (>= 3.2.6, < 5)
+      thread_safe (~> 0.1)
+      warden (~> 1.2.3)
     erubis (2.7.0)
     eventmachine (1.0.3)
     eventmachine (1.0.3-x86-mingw32)
@@ -88,6 +95,7 @@ GEM
       treetop (~> 1.4.8)
     mime-types (1.25.1)
     multi_json (1.10.1)
+    orm_adapter (0.5.0)
     paperclip (3.4.2)
       activemodel (>= 3.0.0)
       activerecord (>= 3.0.0)
@@ -140,6 +148,7 @@ GEM
       eventmachine (>= 1.0.0)
       rack (>= 1.0.0)
     thor (0.19.1)
+    thread_safe (0.3.4)
     tilt (1.4.1)
     treetop (1.4.15)
       polyglot
@@ -149,6 +158,8 @@ GEM
       execjs (>= 0.3.0)
       json (>= 1.8.0)
     underscore-rails (1.7.0)
+    warden (1.2.3)
+      rack (>= 1.0)
 
 PLATFORMS
   ruby
@@ -159,6 +170,7 @@ DEPENDENCIES
   acts_as_list
   better_errors
   coffee-rails (~> 3.2.1)
+  devise
   exception_notification
   gmaps4rails
   jquery-fileupload-rails

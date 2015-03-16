@@ -12,6 +12,8 @@
   <meta name="apple-touch-fullscreen" content="yes">
   <!--<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />-->
 
+  <%= yield :ckeditor %>
+
   <%= stylesheet_link_tag    "application", :media => "all" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
@@ -25,7 +27,16 @@
 <%= render 'layouts/header' %>
 </header>
 
+
 <div id="master_content" class="container">
+  <div id="alerts" class="row">
+    <% if notice %>
+        <div class="alert alert-warning alert-dismissible" role="alert">
+          <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+          <%= notice %>
+        </div>
+    <% end %>
+  </div>
 
   <%= yield %>
 
@@ -34,6 +45,12 @@
 <footer class="footer">
   <div class="container">
     <small>© 2015 <%= SettingUtility.brand %></small>
+
+    <% if user_signed_in? %>
+        <div class="pull-right">
+          <strong><%= link_to 'Admin ' + current_user.email, admin_path %></strong>
+        </div>
+    <% end %>
   </div>
 </footer>
 

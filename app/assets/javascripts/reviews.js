@@ -4,10 +4,11 @@ $(document).ready(function(){
 
     $('.file-upload').fileupload({
 
-        url: '/reviews',
+        url: $('#review_form').data('url'),
         dataType: 'script',
         disableImageResize: false,
         imageMaxHeight: 100,
+        imageMaxWidth: 100,
         uploadTemplateId: null,
         downloadTemplateId: null,
 
@@ -25,7 +26,8 @@ $(document).ready(function(){
             fileTypes: /^image\/(gif|jp?g)$/,
             maxFileSize: 20000000},
             {action: "resize",
-                imageMaxHeight: 100} ,{
+                imageMaxHeight: 100,
+                imageMaxWidth: 100} ,{
                 action: "save"}
         ]
     });
