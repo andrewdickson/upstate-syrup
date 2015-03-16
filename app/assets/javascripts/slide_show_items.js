@@ -65,8 +65,8 @@ function setFileUpload(selector){
             fileTypes: /^image\/(gif|jp?g)$/,
             maxFileSize: 20000000},
             {action: "resize",
-                imageMaxWidth: 1500,
-                imageMaxHeight: 500},{
+                imageMaxWidth: max_width,
+                imageMaxHeight: max_height},{
                 action: "save"}]
 
     });
