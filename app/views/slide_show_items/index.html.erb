@@ -32,18 +32,18 @@
   <h3>Slideshow Settings</h3>
   <br/>
   <div class="form-inline">
-    <label style="text-decoration: underline;">Max Height</label>
+    <label style="text-decoration: underline;">Maximum Height</label>
     <%= number_field_tag 'max-height', SettingUtility.setting('max-height'), class: 'form-control' %>
     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-    <label>Max Height</label>
+    <label>Minimum Height</label>
     <%= number_field_tag 'min-height', SettingUtility.setting('min-height'), class: 'form-control' %>
   </div>
   <br/>
   <div class="form-inline">
-    <label>Max Width</label>
+    <label>Maximum Width</label>
     <%= number_field_tag 'max-width', SettingUtility.setting('max-width'), class: 'form-control' %>
     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-    <label>Min Height</label>
+    <label>Minimum Height</label>
     <%= number_field_tag 'min-width', SettingUtility.setting('min-width'), class: 'form-control' %>
   </div>
       <br/>
