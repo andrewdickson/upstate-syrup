@@ -1,8 +1,9 @@
 <nav class="navbar navbar-default navbar-default-top" role="navigation">
   <div class="container">
+    <% logo = Content.find_by_name('logo').image || 'obj-maple-leaf.png' %>
 
     <div class="navbar-header">
-      <%= link_to (SettingUtility.setting('brand') + ' ').html_safe + image_tag('obj-maple-leaf.png', size: '30x45'), root_path, class: 'navbar-brand syrup' %>
+      <%= link_to (SettingUtility.setting('brand') + ' ').html_safe + image_tag(logo), root_path, class: 'navbar-brand syrup' %>
 
 
       <ul id="pills" class="nav nav-pills pull-right">

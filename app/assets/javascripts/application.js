@@ -55,9 +55,12 @@ $(document).ready(function(event){
 
     $('.raty-edit').raty({
         scoreName: 'review[rating]',
-        readOnly: false
+        readOnly: false,
+        required: true
 
     });
+    $('.raty-edit').attr('required', true);
+
 
     $('#toggleReviewForm').click(function(event){
         $('#review_form').toggle();

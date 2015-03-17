@@ -3,6 +3,8 @@
     <%= stylesheet_link_tag 'editor' %>
 <% end %>
 
+<%= javascript_include_tag 'admin_content.js' %>
+
 <div class="row">
   <ol class="breadcrumb">
     <li><%= link_to("Admin Hub", admin_path) %></li>
@@ -22,7 +24,15 @@
         <%= text_field_tag 'brand', @settings['brand'], class: 'form-control' %>
       </div>
       <br/>
-      <br/>
+
+      <div>
+        <br/>
+        <span class="btn btn-primary btn-file">Change Logo <%= file_field_tag 'content[logo]', class: 'file file-upload-logo' %></span>
+        <% if !@logo_content.new_record? && @logo_content.image %>
+            <%= image_tag @logo_content.image, id: 'preview', style: 'max-height: 100px;' %>
+        <% end %>
+      </div>
+      <br/><br/><br/>
 
       <div>
         <label>Home Heading</label>
@@ -36,6 +46,17 @@
       </div>
       <br/>
       <br/>
+
+
+      <div>
+        <label>About Image</label>
+        <br/>
+        <span class="btn btn-primary btn-file">Upload Picture <%= file_field_tag 'content[image]', class: 'file file-upload' %></span>
+        <% if !@about_content.new_record? && @about_content.image %>
+            <%= image_tag @about_content.image, id: 'preview', style: 'max-height: 100px;' %>
+        <% end %>
+      </div>
+      <br/><br/>
 
       <div>
         <label>About Heading</label>

@@ -1,12 +1,15 @@
 <% active||= false %>
 <% size||= false %>
 <% alt||= file %>
+<% caption||= nil %>
 
 
 <div class="item <%= 'active' if active %>">
-<% if size %>
-    <%= image_tag image, size: size, alt: alt, class: "img-responsive center-block" %>
-<% else %>
-  <%= image_tag image, alt: alt, class: "img-responsive center-block",style: 'max-height: ' + SettingUtility.max_height %>
-<% end %>
+  <%= image_tag image, alt: alt, class: "img-responsive center-block" %>
+
+  <% if caption %>
+      <div class="carousel-caption">
+        <h4><%= caption %></h4>
+      </div>
+  <% end %>
 </div>

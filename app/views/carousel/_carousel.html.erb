@@ -5,7 +5,7 @@
 
   <div class="carousel-inner" role="listbox">
     <% slide_show_items.each do |ssi| %>
-        <%= render 'carousel/carousel_image', image: ssi.image.url, alt: ssi.alternate_text || ssi.name, active: ssi.position == 1  %>
+        <%= render 'carousel/carousel_image', image: ssi.image.url, alt: ssi.alternate_text || ssi.name, active: ssi.position == 1, caption: ssi.caption  %>
     <% end %>
 
   </div>

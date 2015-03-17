@@ -15,7 +15,7 @@
       </div>
       <div class="control-group">
         <div class="controls">
-          <%= f.text_field :email, placeholder: 'Email', class: 'form-control', 'data-validation-required-message'=> 'Please enter your email',
+          <%= f.email_field :email, placeholder: 'Email', class: 'form-control', 'data-validation-required-message'=> 'Please enter your email',
                            required: true, maxlength: 255 %>
         </div>
       </div>
@@ -45,7 +45,9 @@
       <br/>
 
       <%#= f.submit content_tag(:span, 'Send', class: 'glyphicon glyphicon-envelope'), class: '', id: 'contact_send_btn' %>
+      <div>
       <button type="submit" class="btn btn-primary btn-success pull-right id=contact_send_btn"><span class="glyphicon glyphicon-envelope"> </span> Send</button>
+      </div>
 
 
       <br/>
