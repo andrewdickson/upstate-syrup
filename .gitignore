@@ -12,6 +12,7 @@
 /.idea
 /.idea/*
 .idea/
+db/schema.rb
 
 # Ignore all logfiles and tempfiles.
 /log/*.log

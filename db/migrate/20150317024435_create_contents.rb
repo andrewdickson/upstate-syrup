@@ -1,5 +1,5 @@
 class CreateContents < ActiveRecord::Migration
-  def change
+  def up
     create_table :contents do |t|
       t.string :name
       t.text :content
@@ -8,5 +8,10 @@ class CreateContents < ActiveRecord::Migration
     end
 
     add_attachment :contents, :image
+  end
+
+  def down
+    drop_table :contents
+    remove_attachment :contents, :image
   end
 end
