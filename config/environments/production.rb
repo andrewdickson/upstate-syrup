@@ -50,6 +50,7 @@ KraegerSyrup::Application.configure do
   config.assets.precompile += %w(home.js)
   config.assets.precompile += %w(slide_show_items.js)
   config.assets.precompile += %w(reviews.js)
+  config.assets.precompile += %w(admin_content.js)
   config.assets.precompile += %w(messages.js)
   config.assets.precompile += %w(editor.css)
 
