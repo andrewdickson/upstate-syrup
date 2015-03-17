@@ -1,6 +1,7 @@
 <nav class="navbar navbar-default navbar-default-top" role="navigation">
   <div class="container">
-    <% logo = Content.find_by_name('logo').image || 'obj-maple-leaf.png' %>
+    <% logo = Content.find_by_name('logo') %>
+    <% logo = logo && logo.image || 'obj-maple-leaf.png' %>
 
     <div class="navbar-header">
       <%= link_to (SettingUtility.setting('brand') + ' ').html_safe + image_tag(logo), root_path, class: 'navbar-brand syrup' %>
