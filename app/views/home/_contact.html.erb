@@ -2,7 +2,7 @@
 
 <div class="row">
 
-  <div class="col-lg-5 col-md-6 col-sm-10">
+  <div class="col-lg-5 col-md-5 col-sm-12">
     <%= form_for message, remote: true do |f| %>
     <div class="well">
       <legend>Contact <%= SettingUtility.brand %></legend>
@@ -56,13 +56,10 @@
     <% end %>
   </div>
 
-  <div class="col-lg-1 col-md-1 col-sm-2"></div>
 
-  <div class="col-lg-5 col-md-5 col-sm-12">
-    <div id="map_canvas" style='width: 750px; height: 650px;'></div>
+  <div class="col-lg-7 col-md-7 col-sm-12">
+    <div id="map_canvas" style='width: 100%; height: 650px;'></div>
   </div>
-
-  <div class="col-lg-1 col-md-0 col-sm-0"></div>
 
 </div>
 

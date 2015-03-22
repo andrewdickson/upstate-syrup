@@ -8,8 +8,8 @@
   <br/>
   <br/>
   <div class="col-md-5 col-lg-6 well">
-    <h4><%= SettingUtility.setting('about_heading') %></h4>
-    <p><%= SettingUtility.setting('about_p').html_safe %></p>
+    <!--<h4><%#= SettingUtility.setting('about_heading') %></h4>-->
+    <%= SettingUtility.setting('about_p').html_safe %>
   </div>
 </div>
 
@@ -20,5 +20,5 @@
     <h3><%= SettingUtility.setting('brand') %> Reviews</h3>
   </div>
 
-  <%= render 'reviews/reviews', reviews: Review.order('position desc') %>
+  <%= render 'reviews/reviews', reviews: Review.order('position asc') %>
 </div>

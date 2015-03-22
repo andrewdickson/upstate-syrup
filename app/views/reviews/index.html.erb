@@ -8,7 +8,7 @@
 <% @reviews.each do |review| %>
     <div class="row well">
       <%= image_tag review.image %>
-      <%= review.position %>
+      <%#= review.position %>
       <h4><%= review.name %></h4>
       <div class="raty-view" data-score=<%= review.rating %>></div>
       <br/>

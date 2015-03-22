@@ -4,10 +4,29 @@ development:
   min-height: '300'
   min-width: '100'
   max-width: '1900'
-  home_heading: To order the best syrup you ever tasted
-  home_p: ! "<p><strong>Instructions </strong>to order syrup go here</p>\r\n\r\n<p><em>asdfasdfasdfa</em></p>\r\n"
+  home_heading: To order the best syrup you've ever tasted
+  home_p: ! "<p><span style=\"font-size:24px\"><strong><span style=\"line-height:22.3999996185303px\">To
+    Order Syrup</span></strong></span></p>\r\n\r\n<p><span style=\"line-height:1.6\">Call
+    </span><strong style=\"line-height:1.6\">(845) 204-3963</strong></p>\r\n\r\n<p><br
+    />\r\nor Write to:</p>\r\n\r\n<p>123 State St&nbsp;</p>\r\n\r\n<p>Constableville,
+    NY 12345</p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p><strong>Stop by and pickup Syrup at</strong></p>\r\n\r\n<p>123
+    State St&nbsp;</p>\r\n\r\n<p>Constableville, NY 12345</p>\r\n"
   about_heading: About Kraeger Syrup
-  about_p: ! "<p>Details about how syrup is made, how long, why so good</p>\r\n"
+  about_p: ! "<p><span style=\"font-size:26px\">Maple Syrup Prices</span></p>\r\n\r\n<table
+    align=\"left\" border=\"1\" cellpadding=\"1\" cellspacing=\"0\" style=\"width:500px\">\r\n\t<thead>\r\n\t\t<tr>\r\n\t\t\t<th
+    scope=\"col\"><span style=\"font-size:26px\">Size</span></th>\r\n\t\t\t<th scope=\"col\"><span
+    style=\"font-size:26px\">Regular</span></th>\r\n\t\t\t<th scope=\"col\"><span
+    style=\"font-size:26px\">Dark Amber</span></th>\r\n\t\t</tr>\r\n\t</thead>\r\n\t<tbody>\r\n\t\t<tr>\r\n\t\t\t<td><span
+    style=\"font-size:26px\">14 ounces</span></td>\r\n\t\t\t<td><span style=\"font-size:26px\">$20</span></td>\r\n\t\t\t<td><span
+    style=\"font-size:26px\">$25</span></td>\r\n\t\t</tr>\r\n\t\t<tr>\r\n\t\t\t<td><span
+    style=\"font-size:26px\">24 ounces</span></td>\r\n\t\t\t<td><span style=\"font-size:26px\">$25</span></td>\r\n\t\t\t<td><span
+    style=\"font-size:26px\">$30</span></td>\r\n\t\t</tr>\r\n\t\t<tr>\r\n\t\t\t<td><span
+    style=\"font-size:26px\">quart (32 oz.)</span></td>\r\n\t\t\t<td><span style=\"font-size:26px\">$30</span></td>\r\n\t\t\t<td><span
+    style=\"font-size:26px\">$35</span></td>\r\n\t\t</tr>\r\n\t\t<tr>\r\n\t\t\t<td><span
+    style=\"font-size:26px\">half-gallon (64 oz.)</span></td>\r\n\t\t\t<td><span style=\"font-size:26px\">$33</span></td>\r\n\t\t\t<td><span
+    style=\"font-size:26px\">$38.50</span></td>\r\n\t\t</tr>\r\n\t\t<tr>\r\n\t\t\t<td><span
+    style=\"font-size:26px\">gallon (128 oz.)</span></td>\r\n\t\t\t<td><span style=\"font-size:26px\">$45</span></td>\r\n\t\t\t<td><span
+    style=\"font-size:26px\">$50</span></td>\r\n\t\t</tr>\r\n\t</tbody>\r\n</table>\r\n\r\n<p>&nbsp;</p>\r\n"
   brand: Kraeger Syrup
 production:
   max-height: '400'
