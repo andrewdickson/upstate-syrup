@@ -17,12 +17,12 @@ $(document).ready(function(){
          var p = data.results[0].geometry.location
          var latlng = new google.maps.LatLng(p.lat, p.lng);
          var markers = new google.maps.Marker({
-         position: latlng,
-         map: map
+             position: latlng,
+             map: map
          });
 
          map.fitBounds([markers].reduce(function(bounds, marker) {
-         return bounds.extend(marker.getPosition());
+            return bounds.extend(marker.getPosition());
          }, new google.maps.LatLngBounds()));
 
 
@@ -34,5 +34,11 @@ $(document).ready(function(){
              });
          setTimeout(function(){google.maps.event.removeListener(zoomChangeBoundsListener)}, 2000);
 
+
+     /*    var infowindow = new google.maps.InfoWindow({
+             content:"Kraeger Syrup"
+         });
+         infowindow.open(map,markers[0]); todo: label with brand */
      });
+
 });
