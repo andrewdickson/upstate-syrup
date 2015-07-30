@@ -91,4 +91,11 @@ KraegerSyrup::Application.configure do
   ENV['feedback_email'] ='upstatesyrup@gmail.com'
   ENV['feedback_email_bcc'] = 'andrewdickson23@gmail.com'
 
+  config.middleware.use ExceptionNotification::Rack,
+    :email => {
+        :email_prefix => "[Syrup Exception] ",
+        :sender_address => %{"syrup website exception notifier" <upstatesyrup@gmail.com>},
+        :exception_recipients => %w{upstatesyrupdev@gmail.com}
+    }
+
 end
