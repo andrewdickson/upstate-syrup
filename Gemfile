@@ -35,7 +35,12 @@ group :assets do
 end
 
 group :development do
+  gem 'capistrano', '~> 3.4.0'
   gem 'thin'
   gem 'better_errors'
   gem 'letter_opener'
+  gem 'capistrano-passenger', require: false
+  gem 'capistrano-rails',   '~> 1.1', require: false
+  gem 'capistrano-bundler', '~> 1.1', require: false
+  gem 'capistrano-rvm',   '~> 0.1', require: false
 end
