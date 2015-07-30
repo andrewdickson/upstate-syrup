@@ -15,6 +15,9 @@ class HomeController < ApplicationController
   def contact
     @message = Message.new
 
+    i = 0
+    y = 1/i
+
     render 'contact'
   end
 
