@@ -43,7 +43,7 @@
 # Global options
 # --------------
   set :ssh_options, {
-    keys: %w(~/keys/ipipal-base.pem),
+    keys: %w(./syrup.pem),
     user: 'ubuntu'
   }
 #
