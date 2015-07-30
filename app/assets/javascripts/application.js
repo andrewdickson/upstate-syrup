@@ -45,7 +45,23 @@ function toast(message, urgency){
         "<span aria-hidden='true'>&times;</span></button>" + message + "</div>");
 }
 
+function resizeHeader(width){
+    if(width <= 400){
+        $('.navbar-brand').css('font-size', '1.75em');
+        $('.navbar-brand img').hide();
+        $('.nav-pills li a').css('font-size', '1.25em');
+    }
+
+
+    if(width <= 750){
+        $('#pills').css('padding-top', '0px');
+        $('#pills').css('padding-bottom', '10px');
+    }
+
+}
+
 $(document).ready(function(event){
+    resizeHeader($(window).width());
     $('.raty-view').raty({
         readOnly: true,
        score: function(){
@@ -70,4 +86,6 @@ $(document).ready(function(event){
         }, 0);
     });
     setCkEditors();
+
+
 });

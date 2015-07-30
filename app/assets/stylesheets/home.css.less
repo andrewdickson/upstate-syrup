@@ -15,11 +15,9 @@ footer.footer {
   position: absolute;
   bottom: 0;
   width: 100%;
-  /* Set the fixed height of the footer here */
   height: 25px;
   background-color: lightgray;
   padding-top: 2px;
-  //background-image: image-url("woods.jpg");
   background-color: #ffffff;
 }
 
@@ -29,7 +27,11 @@ nav{
 
 .navbar-header .navbar-brand{
   color: white;
-  font-size: 3em;
+  font-size: 2.5em;
+}
+
+.navbar-header{
+  width: 100%;
 }
 
 .navbar-brand,
@@ -40,8 +42,13 @@ nav{
 
 }
 
+.navbar-brand > img {
+  display: inline-block;
+}
+
 #pills{
   padding-top: 20px;
+  float: right;
 }
 
 .carousel-indicators li { visibility: hidden; }

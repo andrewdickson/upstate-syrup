@@ -1,5 +1,5 @@
 class ReviewsController < ApplicationController
-  before_filter :authenticate_user!, except: [:destroy]
+  before_filter :authenticate_user!, only: [:destroy]
 
   # GET /reviews
   # GET /reviews.json
