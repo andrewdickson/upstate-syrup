@@ -1,0 +1,31 @@
+
+    <h3>Change password for <%= current_user.email %></h3>
+
+<div class="well clearfix">
+    <%= form_for(current_user, url: '/change_password', method: :put) do |f| %>
+
+    <% if current_user.errors.any? %>
+        <% current_user.errors.each do |key, value| %>
+            <div class="alert alert-warning">
+                <%= value %>
+            </div>
+        <% end %>
+    <% end %>
+
+    <div class="form-group">
+        <%= f.password_field :current_password, id: 'current_password', placeholder: 'Current Password', required: true, maxlength: 255, class: "form-control" %>
+    </div>
+
+    <div class="form-group">
+        <%= f.password_field :password, id: 'password', value: '', placeholder: 'New Password', required: true, maxlength: 255, class: "form-control" %>
+    </div>
+
+    <div class="form-group">
+        <%= f.password_field :password_confirmation, id: 'password_confirmation', value: '', placeholder: 'Confirm New Password', required: true, maxlength: 255, class: "form-control" %>
+    </div>
+
+    <div class="form-group">
+        <%= f.submit 'Submit', 'class' => 'btn btn-success' %>
+    </div>
+    <% end %>
+</div>

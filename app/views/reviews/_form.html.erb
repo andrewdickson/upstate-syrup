@@ -39,7 +39,7 @@
               <%= f.submit 'Submit', class: 'btn btn-success' %>
 
               <% if review.new_record? %>
-                  <%= link_to 'Cancel', reviews_path, class: 'btn btn-default pull-right' %>
+                  <%= link_to 'Cancel', about_path, class: 'btn btn-default pull-right' %>
               <% else %>
                   <%= link_to 'Delete', review_path(review), class: 'btn btn-default  pull-right', method: :delete %>
               <% end %>

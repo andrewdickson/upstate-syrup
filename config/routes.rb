@@ -21,4 +21,7 @@ KraegerSyrup::Application.routes.draw do
   get '/admin/content' => 'admin#content', as: 'content'
   post '/update_settings' => 'admin#update', as: 'update_settings'
 
+  get '/change_password' => 'passwords#edit', as: 'change_password'
+  put '/change_password' => 'passwords#update'
+
 end
