@@ -1,9 +1,9 @@
-<%#= render 'carousel/carousel', slide_show_items: @slide_show_items %>
+<%= javascript_include_tag 'about' %>
 
 <div class="row">
   <div class="col-md-7 col-lg-6">
 
-    <%= image_tag @about_content.image, style: 'max-height:400px;' %>
+    <%= image_tag @about_content.image, style: 'max-height:400px;', id: 'about_image' %>
   </div>
   <br/>
   <br/>
