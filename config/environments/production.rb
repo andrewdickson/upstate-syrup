@@ -47,7 +47,7 @@ KraegerSyrup::Application.configure do
 
   # Precompile additional assets (application.js, application.css, and all non-JS/CSS are already added)
   config.assets.precompile += %w(map.js)
-  config.assets.precompile += %w(home.js)
+  config.assets.precompile += %w(about.js)
   config.assets.precompile += %w(slide_show_items.js)
   config.assets.precompile += %w(reviews.js)
   config.assets.precompile += %w(admin_content.js)
