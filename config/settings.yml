@@ -27,6 +27,10 @@ development:
     style=\"font-size:26px\">gallon (128 oz.)</span></td>\r\n\t\t\t<td><span style=\"font-size:26px\">$45</span></td>\r\n\t\t\t<td><span
     style=\"font-size:26px\">$50</span></td>\r\n\t\t</tr>\r\n\t</tbody>\r\n</table>\r\n"
   brand: Kraeger's Maple Syrup
+  contact_p: ! "<p><strong>Phone</strong></p>\r\n\r\n<p>(845) 204-3963</p>\r\n\r\n<p><br
+    />\r\n<strong>Address</strong></p>\r\n\r\n<p>Kraeger&#39;s Maple Syrup</p>\r\n\r\n<p>123
+    State St&nbsp;</p>\r\n\r\n<p>Constableville, NY 1234</p>\r\n"
+  message_cc: andrewdickson24@gmail.com
 production:
   max-height: '600'
   min-height: '300'

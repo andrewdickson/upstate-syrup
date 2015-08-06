@@ -34,12 +34,6 @@
       </div>
       <br/><br/><br/>
 
-<!--      <div>
-        <label>Home Heading</label>
-        <%#= text_field_tag 'home_heading', @settings['home_heading'], class: 'form-control' %>
-      </div>
-      <br/>-->
-
       <div>
         <label>Home Content</label>
         <%= text_area_tag 'home_p', @settings['home_p'], class: 'form-control rte' %>
@@ -58,20 +52,29 @@
       </div>
       <br/><br/>
 
-      <!--<div>
-        <label>About Heading</label>
-        <%#= text_field_tag 'about_heading', @settings['about_heading'], class: 'form-control' %>
-      </div>
-      <br/>
--->
-
       <div>
         <label>About Paragraph</label>
         <%= text_area_tag 'about_p', @settings['about_p'], class: 'form-control rte' %>
       </div>
 
 
+      <br/><br/>
+
+
+      <div>
+        <label>Send Messages To</label>
+        <%= email_field_tag 'message_cc', @settings['message_cc'], class: 'form-control email', type: 'email' %>
+      </div>
+      <br/><br/>
+
+      <div>
+        <label>Contact Paragraph</label>
+        <%= text_area_tag 'contact_p', @settings['contact_p'], class: 'form-control rte' %>
+      </div>
+
+
+
       <br/>
-      <%= submit_tag 'Update Settings', class: 'btn btn-default' %>
+      <%= submit_tag 'Update Settings', class: 'btn btn-success' %>
     </div>
 <% end %>
