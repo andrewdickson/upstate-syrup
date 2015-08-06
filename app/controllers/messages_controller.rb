@@ -8,8 +8,7 @@ class MessagesController < ApplicationController
     @message = Message.new(params[:message])
 
     if @message.save
-      puts SettingUtility.settings['message_cc']
-      UserMailer.delay.private_message(@message.email, @message.name, @message.message)
+      UserMailer.delay.private_message(@message.email, @message.name, @message.message, SettingUtility.settings["message_cc"])
       #i.delay.deliver
       #UserMailer.send_later.private_message(@message.email, @message.name, @message.message).deliver
     end
