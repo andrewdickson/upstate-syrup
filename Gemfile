@@ -22,7 +22,7 @@ gem "paperclip", "~> 3.4.2"
 
 gem 'acts_as_list'
 gem 'delayed_job_active_record'
-
+gem 'daemons'
 
 gem "ImageResize"
 
