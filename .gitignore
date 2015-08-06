@@ -30,3 +30,5 @@ public/assets/
 public/assets/*
 /public/assets/*
 syrup.pem
+
+./config/settings.yml
