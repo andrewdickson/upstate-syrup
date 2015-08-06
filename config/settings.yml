@@ -5,11 +5,11 @@ development:
   min-width: '100'
   max-width: '1980'
   home_heading: To order the best syrup you ever tasted
-  home_p: ! "<p><span style=\"font-size:24px\"><strong>To Order Syrup</strong></span></p>\r\n\r\n<p>Call&nbsp;<strong>(845)
-    204-3963</strong></p>\r\n\r\n<p><br />\r\nor Write to:</p>\r\n\r\n<p>123 State
-    St&nbsp;</p>\r\n\r\n<p>Constableville, NY 12345</p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p><strong>Stop
-    by and pickup Syrup at</strong></p>\r\n\r\n<p>123 State St&nbsp;</p>\r\n\r\n<p>Constableville,
-    NY 12345</p>\r\n"
+  home_p: ! "<p><span style=\"font-size:24px\"><strong>To Order Syrup</strong></span></p>\r\n\r\n<p>Call&nbsp;<strong>(315)
+    397-2592</strong></p>\r\n\r\n<p><br />\r\nor Write to:</p>\r\n\r\n<p>Kraeger&#39;s
+    Maple Syrup</p>\r\n\r\n<p>6224 Wynn Road</p>\r\n\r\n<p>Constableville, NY 13325</p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p><strong>Stop
+    by and pickup Syrup at</strong></p>\r\n\r\n<p>6224 Wynn Road</p>\r\n\r\n<p>Constableville,
+    NY 13325</p>\r\n"
   about_heading: About Kraeger Syrup
   about_p: ! "<p><span style=\"font-size:26px\">Maple Syrup Prices</span></p>\r\n\r\n<table
     align=\"left\" border=\"1\" cellpadding=\"3\" cellspacing=\"0\" style=\"width:500px\">\r\n\t<thead>\r\n\t\t<tr>\r\n\t\t\t<th
@@ -27,10 +27,11 @@ development:
     style=\"font-size:26px\">gallon (128 oz.)</span></td>\r\n\t\t\t<td><span style=\"font-size:26px\">$45</span></td>\r\n\t\t\t<td><span
     style=\"font-size:26px\">$50</span></td>\r\n\t\t</tr>\r\n\t</tbody>\r\n</table>\r\n"
   brand: Kraeger's Maple Syrup
-  contact_p: ! "<p><strong>Phone</strong></p>\r\n\r\n<p>(845) 204-3963</p>\r\n\r\n<p><br
-    />\r\n<strong>Address</strong></p>\r\n\r\n<p>Kraeger&#39;s Maple Syrup</p>\r\n\r\n<p>123
-    State St&nbsp;</p>\r\n\r\n<p>Constableville, NY 1234</p>\r\n"
-  message_cc: andrewdickson23@gmail.com
+  contact_p: ! "<p><strong>Phone</strong></p>\r\n\r\n<p>(315) 397-2592</p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p><strong>Email</strong></p>\r\n\r\n<p><a
+    href=\"mailto:mlkraeger@frontiernet.net?subject=Kraeger's%20Maple%20Syrup\">mlkraeger@frontiernet.net</a></p>\r\n\r\n<p><br
+    />\r\n<strong>Address</strong></p>\r\n\r\n<p>Kraeger&#39;s Maple Syrup</p>\r\n\r\n<p>6224
+    Wynn Road&nbsp;</p>\r\n\r\n<p>Constableville, NY 13325</p>\r\n"
+  message_cc: mlkraeger@frontiernet.net
   address: 6224 Wynn Road Constableville, NY 13325, USA
 production:
   max-height: '600'
