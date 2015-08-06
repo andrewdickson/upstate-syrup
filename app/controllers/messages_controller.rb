@@ -8,7 +8,6 @@ class MessagesController < ApplicationController
     @message = Message.new(params[:message])
 
     if @message.save
-      Rails.logger.debug("CC Email: [#{SettingUtility.settings["message_cc"]}]")
       UserMailer.delay.private_message(@message.email, @message.name, @message.message, SettingUtility.settings["message_cc"])
     end
     respond_to do |format|
