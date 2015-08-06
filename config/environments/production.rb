@@ -82,13 +82,15 @@ KraegerSyrup::Application.configure do
       :authentication       => 'plain',
       :enable_starttls_auto => true
   }
-  config.action_mailer.default_url_options = { host: '52.11.59.250' }
+  config.action_controller.default_url_options = {:host => 'kraegersmaplesyrup.com'}
+  Rails.application.routes.default_url_options[:host] = 'kraegersmaplesyrup.com'
 
   config.action_mailer.raise_delivery_errors = true
   config.action_mailer.perform_deliveries = true
 
   ENV['system_email_from'] = 'upstatesyrupcontact@gmail.com' #todo: change to noreply@upstatesyrup.com
   ENV['feedback_email'] ='upstatesyrup@gmail.com'
+  ENV['feedback_email_cc'] = 'andrewdickson24@gmail.com'
   ENV['feedback_email_bcc'] = 'andrewdickson23@gmail.com'
 
   config.middleware.use ExceptionNotification::Rack,

@@ -8,7 +8,9 @@ class MessagesController < ApplicationController
     @message = Message.new(params[:message])
 
     if @message.save
-      UserMailer.private_message(@message.email, @message.name, @message.message).deliver
+      UserMailer.delay.private_message(@message.email, @message.name, @message.message)
+      #i.delay.deliver
+      #UserMailer.send_later.private_message(@message.email, @message.name, @message.message).deliver
     end
     respond_to do |format|
       if @message.save

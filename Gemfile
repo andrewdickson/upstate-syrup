@@ -8,6 +8,7 @@ gem 'rake', '10.1.0'
 gem 'jquery-rails'
 
 gem 'therubyracer'
+#gem 'libv8', '3.16.14.3'
 gem 'less-rails'
 gem 'less-rails-bootstrap'
 
@@ -20,6 +21,8 @@ gem 'gmaps4rails'
 gem "paperclip", "~> 3.4.2"
 
 gem 'acts_as_list'
+gem 'delayed_job_active_record'
+
 
 gem "ImageResize"
 
@@ -37,7 +40,7 @@ end
 group :development do
   gem 'capistrano', '~> 3.4.0'
   gem 'thin'
-  gem 'better_errors'
+  #gem 'better_errors'
   gem 'letter_opener'
   gem 'capistrano-passenger', require: false
   gem 'capistrano-rails',   '~> 1.1', require: false
