@@ -47,6 +47,7 @@ class AdminController < ApplicationController
     @settings['home_p'] = params['home_p'] if params['home_p']
     @settings['contact_p'] = params['contact_p'] if params['contact_p']
     @settings['message_cc'] = params['message_cc'] if params['message_cc']
+    @settings['address'] = params['address'] if params['address']
     SettingUtility.SaveSettings(@settings)
 
     if params[:content]

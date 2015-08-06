@@ -31,6 +31,7 @@ development:
     />\r\n<strong>Address</strong></p>\r\n\r\n<p>Kraeger&#39;s Maple Syrup</p>\r\n\r\n<p>123
     State St&nbsp;</p>\r\n\r\n<p>Constableville, NY 1234</p>\r\n"
   message_cc: andrewdickson23@gmail.com
+  address: 6224 Wynn Road Constableville, NY 13325, USA
 production:
   max-height: '600'
   min-height: '300'

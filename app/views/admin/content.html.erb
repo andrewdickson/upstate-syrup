@@ -1,6 +1,9 @@
+
+
 <%= content_for :ckeditor do %>
     <%= javascript_include_tag '/javascripts/ckeditor/ckeditor.js' %>
     <%= stylesheet_link_tag 'editor' %>
+    <%= stylesheet_link_tag 'admin' %>
 <% end %>
 
 <%= javascript_include_tag 'admin_content.js' %>
@@ -34,47 +37,73 @@
       </div>
       <br/><br/><br/>
 
-      <div>
-        <label>Home Content</label>
-        <%= text_area_tag 'home_p', @settings['home_p'], class: 'form-control rte' %>
+      <div class="row">
+        <div class="col-xs-12">
+          <div>
+            <ul class="nav nav-tabs settings" role="tablist">
+              <li class="ctrl-tab active" role="presentation">
+                <a data-toggle="tab" href="#home_content"><span>Home Content</span></a>
+              </li>
+              <li class="ctrl-tab" role="presentation">
+                <a data-toggle="tab" href="#about_content"><span>About Content</span></a>
+              </li>
+              <li class="ctrl-tab" role="presentation">
+                <a data-toggle="tab" href="#contact_content"><span>Contact Content</span></a>
+              </li>
+            </ul>
+            <div class="tab-content">
+              <div role="tabpanel" class="tab-pane fade in active" id="home_content">
+                <br/><br/>
+                <div>
+                  <label>Home Paragraph</label>
+                  <%= text_area_tag 'home_p', @settings['home_p'], class: 'form-control rte' %>
+                </div>
+              </div>
+              <div role="tabpanel" class="tab-pane fade" id="about_content">
+                <br/><br/>
+                <div>
+                  <label>About Image</label>
+                  <br/>
+                  <span class="btn btn-primary btn-file">Upload Picture <%= file_field_tag 'content[image]', class: 'file file-upload' %></span>
+                  <% if !@about_content.new_record? && @about_content.image %>
+                      <%= image_tag @about_content.image, id: 'preview', style: 'max-height: 100px;' %>
+                  <% end %>
+                </div>
+                <br/><br/>
+
+                <div>
+                  <label>About Paragraph</label>
+                  <%= text_area_tag 'about_p', @settings['about_p'], class: 'form-control rte' %>
+                </div>
+
+              </div>
+              <div role="tabpanel" class="tab-pane fade" id="contact_content">
+                <br/><br/>
+                <div>
+                  <label>Send Messages To</label>
+                  <%= email_field_tag 'message_cc', @settings['message_cc'], class: 'form-control email', type: 'email' %>
+                </div>
+                <br/><br/>
+
+                <div>
+                  <label>Contact Paragraph</label>
+                  <%= text_area_tag 'contact_p', @settings['contact_p'], class: 'form-control rte' %>
+                </div>
+
+                <br/><br/>
+                <div>
+                  <label>Map Address</label>
+                  <%= text_field_tag 'address', @settings['address'], class: 'form-control' %>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
+
       <br/>
       <br/>
 
-
-      <div>
-        <label>About Image</label>
-        <br/>
-        <span class="btn btn-primary btn-file">Upload Picture <%= file_field_tag 'content[image]', class: 'file file-upload' %></span>
-        <% if !@about_content.new_record? && @about_content.image %>
-            <%= image_tag @about_content.image, id: 'preview', style: 'max-height: 100px;' %>
-        <% end %>
-      </div>
-      <br/><br/>
-
-      <div>
-        <label>About Paragraph</label>
-        <%= text_area_tag 'about_p', @settings['about_p'], class: 'form-control rte' %>
-      </div>
-
-
-      <br/><br/>
-
-
-      <div>
-        <label>Send Messages To</label>
-        <%= email_field_tag 'message_cc', @settings['message_cc'], class: 'form-control email', type: 'email' %>
-      </div>
-      <br/><br/>
-
-      <div>
-        <label>Contact Paragraph</label>
-        <%= text_area_tag 'contact_p', @settings['contact_p'], class: 'form-control rte' %>
-      </div>
-
-
-
-      <br/>
       <%= submit_tag 'Update Settings', class: 'btn btn-success' %>
     </div>
 <% end %>

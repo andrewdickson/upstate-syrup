@@ -11,7 +11,8 @@ $(document).ready(function(){
      map = new google.maps.Map($('#map_canvas')[0], myOptions);
 
 
-     var address = encodeURIComponent('3164 state route 26 Constableville, NY 13325, USA');
+     var address_data = $('#mapAddress').data('address');
+     var address = encodeURIComponent(address_data); //'3164 state route 26 Constableville, NY 13325, USA'
 
      $.getJSON('http://maps.googleapis.com/maps/api/geocode/json?address='+address+'&sensor=false', null, function (data) {
          var p = data.results[0].geometry.location
