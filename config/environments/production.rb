@@ -90,7 +90,7 @@ KraegerSyrup::Application.configure do
 
   ENV['system_email_from'] = 'upstatesyrupcontact@gmail.com' #todo: change to noreply@upstatesyrup.com
   ENV['feedback_email'] ='upstatesyrup@gmail.com'
-  ENV['feedback_email_cc'] = 'andrewdickson24@gmail.com'
+  #ENV['feedback_email_cc'] = 'andrewdickson24@gmail.com'
   ENV['feedback_email_bcc'] = 'andrewdickson23@gmail.com'
 
   config.middleware.use ExceptionNotification::Rack,
