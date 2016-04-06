@@ -62,6 +62,12 @@ function resizeHeader(width){
 
 $(document).ready(function(event){
     resizeHeader($(window).width());
+    var windowWidth = $(window).width();
+
+    if(windowWidth >= 500){
+        $('#paypal_container').css('padding-left', "85px");
+    }
+
     $('.raty-view').raty({
         readOnly: true,
        score: function(){

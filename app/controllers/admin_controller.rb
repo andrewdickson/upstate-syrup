@@ -51,12 +51,12 @@ class AdminController < ApplicationController
     SettingUtility.SaveSettings(@settings)
 
     if params[:content]
-      if params[:content][:image]
+      if params[:content][:image] && params[:content][:image] != ""
         @about_content = Content.find_by_name('about_image')
         @about_content = Content.new(name: 'about_image') if !@about_content
         @about_content.image = params[:content][:image]
         @about_content.save
-      elsif params[:content][:logo]
+      elsif params[:content][:logo] && params[:content][:logo] != ""
         @logo_content = Content.find_by_name('logo')
         @logo_content = Content.new(name: 'logo') if !@logo_content
         @logo_content.image = params[:content][:logo]
@@ -66,10 +66,15 @@ class AdminController < ApplicationController
 
 
     respond_to do |format|
-        format.html { redirect_to (params['home_p'] ? content_path : pictures_path) }
-        format.json { head :no_content }
+        format.html {
+          redirect_to (params['home_p'] ? content_path : pictures_path)
+        }
+        format.json {
+          head :no_content
+        }
         format.js {
-          render 'update' }
+          render 'update'
+        }
     end
 
   end

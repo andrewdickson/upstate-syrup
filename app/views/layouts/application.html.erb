@@ -28,6 +28,7 @@
 </header>
 
 
+
 <div id="master_content" class="container">
   <div id="alerts" class="row">
     <% if notice %>
@@ -37,6 +38,12 @@
         </div>
     <% end %>
   </div>
+
+  <%= render 'layouts/paypal' %>
+
+  <br/>
+
+  <br/>
 
   <%= yield %>
 
