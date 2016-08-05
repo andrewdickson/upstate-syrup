@@ -1,22 +1,18 @@
-class HomeController < ApplicationController
+class OrderController < ApplicationController
 
-  def home
-    @slide_show_items = SlideShowItem.order('position asc')
+  def index
     @products = Product.order('position asc')
 
-    render 'home'
+    render 'home/products'
   end
 
   def about
     @slide_show_items = SlideShowItem.order('position asc')
-    @products = Product.order('position asc')
     @about_content = Content.find_by_name('about_image')
     render 'about'
   end
 
   def contact
-    @slide_show_items = SlideShowItem.order('position asc')
-    @products = Product.order('position asc')
     @message = Message.new
 
     @address = SettingUtility.setting('address')

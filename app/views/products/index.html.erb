@@ -1,0 +1,28 @@
+<%= javascript_include_tag 'products.js' %>
+
+<div class="row">
+  <ol class="breadcrumb">
+    <li><%= link_to("Admin Hub", admin_path) %></li>
+    <li class="active">Products</li>
+  </ol>
+</div>
+
+<br/>
+
+<div class="row">
+  <div class="col-xs-12">
+    <a class="btn btn-success" style="color:white;" href="<%= new_product_path %>">New Product</a>
+  </div>
+</div>
+
+<br/>
+
+<div class="row">
+  <div class="col-xs-12 col-md-9">
+    <div id="products" class="top5">
+        <%= render 'products', products: @products %>
+    </div>
+  </div>
+</div>
+
+<br/><br/>

@@ -1,0 +1,51 @@
+
+<%= javascript_include_tag "products" %>
+
+
+  <a id="orderSyrup" class="btn btn-success">
+    <h3 style="margin-top: 10px;">Order Maple Syrup</h3>
+  </a>
+
+    <br/><br/>
+  <div id="orderSyrupContainer" class="well">
+
+
+    <div class="row">
+      <div class="col-xs-12 col-sm-5 col-md-4">
+        <h4><label for="product_size">Select Size</label></h4>
+        <%= select_tag "product_size", options_from_collection_for_select(@products, "id", "name"), class: "form-control", id: "product_size" %>
+      </div>
+      <div class="col-xs-12 col-sm-5 col-md-4">
+          <h4><label for="product_size">Shipping</label></h4>
+          <div class="radio-inline">
+            <label><input type="radio" name="ship_pickup" id="ship" checked>Ship to My Address</label>
+          </div>
+          <div class="radio-inline">
+            <label><input type="radio" name="ship_pickup" id="pickup">Pickup</label>
+          </div>
+      </div>
+
+    </div>
+
+
+    <br/><br/>
+
+  <% @products.each do |p| %>
+
+      <div class="product_container" id="product_container_<%= p.id %>">
+        <%= image_tag p.image_path, style: "max-height: 250px; max-width: 750;" %>
+
+        <br/><br/>
+        <div class="paypal_code" id="paypal_code_<%= p.id %>_ship">
+          paypal_<%= p.id %>_ship
+          <%= p.paypal_ship_code.html_safe %>
+        </div>
+
+          <div class="paypal_code" id="paypal_code_<%= p.id %>_pickup">
+            paypal_<%= p.id %>pickup
+            <%= p.paypal_pickup_code.html_safe %>
+          </div>
+      </div>
+  <% end %>
+
+</div>

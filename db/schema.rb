@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20150806002601) do
+ActiveRecord::Schema.define(:version => 20160804233848) do
 
   create_table "contents", :force => true do |t|
     t.string   "name"
@@ -46,6 +46,24 @@ ActiveRecord::Schema.define(:version => 20150806002601) do
     t.text     "message"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+  end
+
+  create_table "products", :force => true do |t|
+    t.string   "name"
+    t.float    "price"
+    t.string   "product_type"
+    t.float    "weight_in_ounces"
+    t.float    "shipping_price"
+    t.text     "description"
+    t.text     "paypal_ship_code"
+    t.text     "paypal_pickup_code"
+    t.integer  "position"
+    t.datetime "created_at",         :null => false
+    t.datetime "updated_at",         :null => false
+    t.string   "image_file_name"
+    t.string   "image_content_type"
+    t.integer  "image_file_size"
+    t.datetime "image_updated_at"
   end
 
   create_table "reviews", :force => true do |t|

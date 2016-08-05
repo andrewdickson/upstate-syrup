@@ -1,0 +1,10 @@
+<div class="row">
+  <ol class="breadcrumb">
+    <li><%= link_to("Home", root_path) %></li>
+    <li><%= link_to("Products", products_path) %></li>
+    <li class="active">Edit Product</li>
+  </ol>
+</div>
+
+<%= render 'form', product: @product %>
+

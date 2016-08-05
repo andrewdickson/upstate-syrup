@@ -1,4 +1,7 @@
 KraegerSyrup::Application.routes.draw do
+  resources :products
+
+
   devise_for :users
 
   resources :reviews
@@ -8,6 +11,8 @@ KraegerSyrup::Application.routes.draw do
   get '/pictures' => 'slide_show_items#index', as: 'pictures'
   get '/pictures/:id/edit' => 'slide_show_items#edit', as: 'edit_picture'
   get '/pictures/new' => 'slide_show_items#new', as: 'new_picture'
+
+
 
   root to: 'home#home'
   get '/' => 'home#home', as: 'home'
