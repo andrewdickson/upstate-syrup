@@ -54,6 +54,7 @@ KraegerSyrup::Application.configure do
   config.assets.precompile += %w(messages.js)
   config.assets.precompile += %w(editor.css)
   config.assets.precompile += %w(admin.css)
+  config.assets.precompile += %w(products.js)
 
   # Disable delivery errors, bad email addresses will be ignored
   # config.action_mailer.raise_delivery_errors = false
