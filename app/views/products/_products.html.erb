@@ -10,7 +10,7 @@
         <th></th>
       </tr>
       <% products.sort_by{|x| x.position}.each do |product| %>
-          <tr data-link="<%= edit_product_path(product.id) %>">
+          <tr data-link="<%= edit_product_path(product.id) %>" style="pointer: cursor;">
             <td class="hidden-xs" position><%= product.position %></td>
             <td class="hidden-xs"><%= product.name %></td>
             <td class="hidden-xs"><%= time_ago_in_words(product.created_at) + ' ago' %></td>

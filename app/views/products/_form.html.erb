@@ -1,7 +1,10 @@
 <%= javascript_include_tag 'products' %>
 
+<input type="hidden" id="product_submit_path" data-url="<%= product.new_record? ? products_path : product_path(product) %>" />
+
 <div class="well" id="product_form" data-max-height="<%= @settings['max-height'] %>" data-min-height="<%= @settings['min-height'] %>"
      data-max-width="<%= @settings['max-width'] %>" data-min-width="<%= @settings['min-width'] %>" data-url="<%= products_path %>">
+
     <%= form_for(product) do |f| %>
       <% if product.errors.any? %>
         <div id="error_explanation">
@@ -35,16 +38,16 @@
         <%= f.text_area :paypal_pickup_code, class: 'form-control', cols: '40', rows: '3' %>
       </div>
 
-      <div class="form-group">
-        <span class="btn btn-primary btn-file">Upload Picture <%= f.file_field :image, class: 'file file-upload' %></span>
-        <br/><br/>
-        <div class="upload-preview">
-          <% if product.new_record? || !product.image %>
-              <img id="test" />
-          <% else %>
-              <%= image_tag product.image, id: 'test' %>
-          <% end %>
-        </div>
+     <div class="form-group">
+            <span class="btn btn-primary btn-file">Upload Picture <%= f.file_field :image, class: 'file file-upload' %></span>
+            <br/><br/>
+            <div class="upload-preview">
+              <% if product.new_record? || !product.image %>
+                  <img id="test" />
+              <% else %>
+                  <%= image_tag product.image, id: 'product_image', style: "max-height: 250px; max-width: 750px;" %>
+              <% end %>
+            </div>
       </div>
 
       <div class="actions">
