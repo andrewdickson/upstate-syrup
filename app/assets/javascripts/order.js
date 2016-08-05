@@ -48,5 +48,14 @@ $(document).ready(function(){
     productSelected(null);
 
     $('#orderSyrupContainer').hide();
+    $(".paypal_code form img").css("margin-top", "75px");
+    $(".paypal_code form table tr td:first").css("font-weight", "bold");
+    $(".paypal_code form table tr td").css("font-size", "18px");
+    $(".paypal_code form table tr td select").css("font-size", "18px");
+    $(".paypal_code form table tr td select").parent().css("padding-top", "10px");
+    $(".paypal_code form table").css("border", "0px none transparent");
+    $(".paypal_code form table").css("margin-top", "20px");
+    $(".paypal_code form table tr td select").addClass("form-control");
+    $(".paypal_code form table tr td select").css("font-family", "verdana, arial, helvetica, sans-serif");
 
 });

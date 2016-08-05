@@ -12,7 +12,7 @@
 
     <div class="row">
       <div class="col-xs-12 col-sm-5 col-md-4">
-        <h4><label for="product_size">Select Size</label></h4>
+        <h4><label for="product_size">Size</label></h4>
         <%= select_tag "product_size", options_from_collection_for_select(@products, "id", "name"), class: "form-control", id: "product_size" %>
       </div>
       <div class="col-xs-12 col-sm-5 col-md-4">
@@ -37,15 +37,24 @@
 
         <br/><br/>
         <div class="paypal_code" id="paypal_code_<%= p.id %>_ship">
-          paypal_<%= p.id %>_ship
+          <!--paypal_<%= p.id %>_ship
+          -->
           <%= p.paypal_ship_code.html_safe %>
         </div>
 
           <div class="paypal_code" id="paypal_code_<%= p.id %>_pickup">
-            paypal_<%= p.id %>pickup
-            <%= p.paypal_pickup_code.html_safe %>
+            <!--paypal_<%= p.id %>pickup
+            --><%= p.paypal_pickup_code.html_safe %>
           </div>
       </div>
   <% end %>
 
 </div>
+
+<% unless Rails.env.production? %>
+    <script>
+        $(document).ready(function() {
+            $("#orderSyrup").click();
+        });
+    </script>
+<% end %>
