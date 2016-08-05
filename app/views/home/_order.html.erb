@@ -16,7 +16,7 @@
         <%= select_tag "product_size", options_from_collection_for_select(@products, "id", "name"), class: "form-control", id: "product_size" %>
       </div>
       <div class="col-xs-12 col-sm-5 col-md-4">
-          <h4><label for="product_size">Shipping</label></h4>
+          <h4><label for="product_size">Shipping (<span id="shipping_label"></span>)</label></h4>
           <div class="radio-inline">
             <label><input type="radio" name="ship_pickup" id="ship" checked>Ship to My Address</label>
           </div>

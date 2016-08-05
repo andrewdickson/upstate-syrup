@@ -8,7 +8,14 @@ var setPaypal = function(product){
     $(".paypal_code").hide();
     var is_pickup = $("#pickup").is(':checked');
     var paypalCodeSelector = "#paypal_code_" + product.id + "_" + (is_pickup ? "pickup" : "ship");
-    $(paypalCodeSelector).show()
+    $(paypalCodeSelector).show();
+
+    if(is_pickup){
+        $("#shipping_label").html("Free");
+    }
+    else{
+        $("#shipping_label").html(product.shipping_option);
+    }
 
 };
 var productSelected = function(productId){

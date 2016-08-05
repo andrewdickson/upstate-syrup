@@ -27,6 +27,12 @@
       </div>
 
       <div class="form-group">
+        <h4>Shipping Cost</h4>
+        <label class="hidden" for="name">Shipping Cost</label>
+        <%= f.text_field :shipping_option, class: 'form-control' %>
+      </div>
+
+      <div class="form-group">
         <h4>Paypal Ship Code</h4>
         <label class="hidden" for="name">Paypal Ship Code</label>
         <%= f.text_area :paypal_ship_code, class: 'form-control', cols: '40', rows: '3' %>
