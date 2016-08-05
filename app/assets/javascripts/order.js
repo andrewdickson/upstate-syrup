@@ -48,7 +48,7 @@ $(document).ready(function(){
     productSelected(null);
 
     $('#orderSyrupContainer').hide();
-    $(".paypal_code form img").css("margin-top", "75px");
+    $(".paypal_code form img").css("margin-top", "150px");
     $(".paypal_code form table tr td:first").css("font-weight", "bold");
     $(".paypal_code form table tr td").css("font-size", "18px");
     $(".paypal_code form table tr td select").css("font-size", "18px");
