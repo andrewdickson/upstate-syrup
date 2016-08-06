@@ -40,21 +40,6 @@ var setShippingCostByZipCode = function(zipCode){
     );
 };
 
-var getStateName = function(){
-    var ret = null;
-    var g = $("#zone_data").data("google_zip");
-    if(g && g.results  && g.results.length && g.results[0] && g.results[0].address_components && g.results[0].address_components.length){
-        ret = g.results[0].address_components[4].long_name;
-    }
-    else {
-        var geo_ip = $("#zone_data").data("geo_ip")
-        if (geo_ip && geo_ip.region_name) {
-            ret = geo_ip.region_name;
-        }
-    }
-
-    return ret;
-};
 
 var setShippingCostByState = function(){
     var is_pickup = $("#pickup").is(':checked');
@@ -84,11 +69,22 @@ var setShippingCostByState = function(){
     }
 };
 
-var getStateAbbreviation = function(){
+var getStateName = function(){
     var ret = null;
     var g = $("#zone_data").data("google_zip");
-    if(g && g.results  && g.results.length && g.results[0] && g.results[0].address_components && g.results[0].address_components.length){
-        ret = g.results[0].address_components[4].short_name;
+    if(g && g.results  && g.results.length && g.results[0] && g.results[0].address_components && g.results[0].address_components.length >= 1){
+        var address_components = g.results[0].address_components;
+        for(var i=0; i<address_components.length; ++i){
+            if(address_components[i].types.indexOf("administrative_area_level_1") >= 0){
+                ret = address_components[i].long_name;
+                break;
+            }
+        }
+
+        if(ret == null){
+            $("#zone_data").data("google_zip", "");
+            return getStateAbbreviation();
+        }
     }
     else {
         var geo_ip = $("#zone_data").data("geo_ip")
@@ -113,10 +109,10 @@ var refreshShippingCost = function(){
             productSize = $("#product_size option:selected").text();
 
         if (productSize && productSize.toLowerCase().indexOf("gallon") < 0) {
-            $("#shipping_label").html(box_cost_a + " to " + getStateAbbreviation());
+            $("#shipping_label").html(box_cost_a + " to " + getStateName());
         }
         else {
-            $("#shipping_label").html(box_cost_b + " to " + getStateAbbreviation());
+            $("#shipping_label").html(box_cost_b + " to " + getStateName());
         }
     }
 };
