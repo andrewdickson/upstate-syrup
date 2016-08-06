@@ -1,4 +1,7 @@
 KraegerSyrup::Application.routes.draw do
+  resources :zones
+
+
   resources :products
 
 

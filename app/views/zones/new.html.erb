@@ -1,0 +1,10 @@
+<div class="row">
+  <ol class="breadcrumb">
+    <li><%= link_to("Admin Hub", admin_path) %></li>
+    <li><%= link_to("Zones", zones_path) %></li>
+    <li class="active">Create New Zone</li>
+  </ol>
+</div>
+
+<%= render 'form', zone: @zone %>
+

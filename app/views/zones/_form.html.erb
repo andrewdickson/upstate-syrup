@@ -1,0 +1,63 @@
+<%= javascript_include_tag 'zones' %>
+
+<input type="hidden" id="zone_submit_path" data-url="<%= zone.new_record? ? zones_path : zone_path(zone) %>" />
+
+<div class="well" id="zone_form" data-max-height="<%= @settings['max-height'] %>" data-min-height="<%= @settings['min-height'] %>"
+     data-max-width="<%= @settings['max-width'] %>" data-min-width="<%= @settings['min-width'] %>" data-url="<%= zones_path %>">
+
+    <%= form_for(zone) do |f| %>
+      <% if zone.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(zone.errors.count, "error") %> prohibited this zone from being saved:</h2>
+
+          <ul>
+          <% zone.errors.full_messages.each do |msg| %>
+            <li><%= msg %></li>
+          <% end %>
+          </ul>
+        </div>
+      <% end %>
+
+        <%= hidden_field_tag 'new_record', zone.new_record? %>
+
+      <div class="form-group">
+        <h4>Name</h4>
+        <label class="hidden" for="name">Name</label>
+        <%= f.text_area :name, class: 'form-control', maxlength: 255, cols: '40', rows: '1' %>
+      </div>
+
+      <div class="form-group">
+        <h4>Box A Cost</h4>
+        <label class="hidden" for="name">Box A Cost</label>
+        <%= f.text_field :box_a_cost, class: 'form-control' %>
+      </div>
+
+      <div class="form-group">
+        <h4>Box B Cost</h4>
+        <label class="hidden" for="name">Box B Cost</label>
+        <%= f.text_field :box_b_cost, class: 'form-control' %>
+      </div>
+
+      <div class="form-group">
+        <h4>States</h4>
+        <label class="hidden" for="name">States</label>
+        <%= f.text_area :states, class: 'form-control', rows: 3, col: 40 %>
+      </div>
+
+      <div class="actions">
+        <%= f.submit 'Submit', class: 'btn btn-success' %>
+
+        <% if zone.new_record? %>
+            <%= link_to 'Cancel', zones_path, class: 'btn btn-default pull-right' %>
+        <% else %>
+            <%= link_to 'Delete', zone_path(zone), class: 'btn btn-default  pull-right', method: :delete %>
+        <% end %>
+
+      </div>
+
+
+    <% end %>
+
+
+</div>
+

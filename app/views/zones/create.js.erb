@@ -1,0 +1,5 @@
+<% if @zone.new_record? %>
+    alert("Failed to Save Zone");
+<% else %>
+    window.location.href = "<%= @new_url %>";
+<% end %>

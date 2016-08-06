@@ -18,18 +18,21 @@
         </div>
       <% end %>
 
-        <%= hidden_field_tag 'new_record', product.new_record? %>
+      <%= hidden_field_tag 'new_record', product.new_record? %>
+
+      <div class="form-group">
+
+        <%= f.check_box :enabled, :data => { :size => 'small', 'on-color'=>'success'} %>
+        <%= f.label :enabled, "Enabled" %>
+
+
+
+      </div>
 
       <div class="form-group">
         <h4>Name</h4>
         <label class="hidden" for="name">Name</label>
         <%= f.text_area :name, class: 'form-control', maxlength: 255, cols: '40', rows: '1' %>
-      </div>
-
-      <div class="form-group">
-        <h4>Shipping Cost</h4>
-        <label class="hidden" for="name">Shipping Cost</label>
-        <%= f.text_field :shipping_option, class: 'form-control' %>
       </div>
 
       <div class="form-group">

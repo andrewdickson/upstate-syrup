@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20160805035120) do
+ActiveRecord::Schema.define(:version => 20160805190851) do
 
   create_table "contents", :force => true do |t|
     t.string   "name"
@@ -58,13 +58,14 @@ ActiveRecord::Schema.define(:version => 20160805035120) do
     t.text     "paypal_ship_code"
     t.text     "paypal_pickup_code"
     t.integer  "position"
-    t.datetime "created_at",         :null => false
-    t.datetime "updated_at",         :null => false
+    t.datetime "created_at",                           :null => false
+    t.datetime "updated_at",                           :null => false
     t.string   "image_file_name"
     t.string   "image_content_type"
     t.integer  "image_file_size"
     t.datetime "image_updated_at"
     t.string   "shipping_option"
+    t.boolean  "enabled",            :default => true
   end
 
   create_table "reviews", :force => true do |t|
@@ -114,5 +115,14 @@ ActiveRecord::Schema.define(:version => 20160805035120) do
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true
   add_index "users", ["reset_password_token"], :name => "index_users_on_reset_password_token", :unique => true
+
+  create_table "zones", :force => true do |t|
+    t.string   "name"
+    t.string   "box_a_cost"
+    t.string   "box_b_cost"
+    t.text     "states"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
 
 end

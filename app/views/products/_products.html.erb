@@ -2,18 +2,20 @@
   <div class="table-responsive">
     <table class="table table-hover">
       <tr>
-        <th class="hidden-xs">#</th>
-        <th class="hidden-xs">Name</th>
-        <th class="hidden-xs">Created at</th>
+        <th></th>
+        <th>Name</th>
+        <th>Enabled</th>
         <th>Thumbnail</th>
         <th></th>
         <th></th>
       </tr>
       <% products.sort_by{|x| x.position}.each do |product| %>
           <tr data-link="<%= edit_product_path(product.id) %>" style="pointer: cursor;">
-            <td class="hidden-xs" position><%= product.position %></td>
-            <td class="hidden-xs"><%= product.name %></td>
-            <td class="hidden-xs"><%= time_ago_in_words(product.created_at) + ' ago' %></td>
+            <td position><%= product.position %></td>
+            <td><%= product.name %></td>
+            <td>
+                <label><%= product.enabled ? "Yes" : "No" %> </label>
+            </td>
             
             <td><%= image_tag product.image, style: 'max-height: 100px; max-width: 200px;' %></td>
             <td>

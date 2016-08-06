@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  box_a_price: MyString
+  box_b_price: MyString
+  states: MyText
+
+two:
+  box_a_price: MyString
+  box_b_price: MyString
+  states: MyText

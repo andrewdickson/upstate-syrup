@@ -1,0 +1,24 @@
+<%= javascript_include_tag 'zones.js' %>
+
+<div class="row">
+  <ol class="breadcrumb">
+    <li><%= link_to("Admin Hub", admin_path) %></li>
+    <li class="active">Zones</li>
+  </ol>
+</div>
+
+<br/>
+
+<div class="row">
+  <div class="col-xs-12">
+    <a class="btn btn-success" style="color:white;" href="<%= new_zone_path %>">New Zone</a>
+  </div>
+</div>
+
+<br/>
+
+<%= render 'zones', zones: @zones %>
+
+<br/><br/>
+
+<%= image_tag "map_with_prices_1000.png" %>
