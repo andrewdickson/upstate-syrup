@@ -108,7 +108,7 @@ var refreshShippingCost = function(){
             box_cost_b = $("#zone_data").data("shipping_cost_box_b"),
             productSize = $("#product_size option:selected").text();
 
-        if (productSize && productSize.toLowerCase().indexOf("gallon") < 0) {
+        if (productSize && productSize.toLowerCase().indexOf("1 gallon") < 0) {
             $("#shipping_label").html(box_cost_a + " to " + getStateName());
         }
         else {
