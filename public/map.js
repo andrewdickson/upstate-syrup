@@ -14,7 +14,7 @@ $(document).ready(function(){
      var address_data = $('#mapAddress').data('address');
      var address = encodeURIComponent(address_data); //'3164 state route 26 Constableville, NY 13325, USA'
 
-     $.getJSON('http://maps.googleapis.com/maps/api/geocode/json?address='+address+'&sensor=false', null, function (data) {
+     $.getJSON('https://maps.googleapis.com/maps/api/geocode/json?address='+address+'&sensor=false&key=AIzaSyB9nt0tsfzRCKt1rlRU4HisFmCOIUbMzhg', null, function (data) {
          var p = data.results[0].geometry.location;
          var latlng = new google.maps.LatLng(p.lat, p.lng);
          var markers = new google.maps.Marker({
@@ -36,10 +36,10 @@ $(document).ready(function(){
          setTimeout(function(){google.maps.event.removeListener(zoomChangeBoundsListener)}, 2000);
 
 
-         var infowindow = new google.maps.InfoWindow({
+/*         var infowindow = new google.maps.InfoWindow({
              content:"Kraeger's Maple Syrup"
          });
-         infowindow.open(map,markers[0]); //todo: label with brand
+         infowindow.open(map,markers[0]); //todo: label with brand*/
      });
 
 });
