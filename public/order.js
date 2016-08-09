@@ -30,10 +30,14 @@ var setShippingCostByZipCode = function(zipCode){
 
     $.get("http://maps.googleapis.com/maps/api/geocode/json?address=" + zipCode,
         function(response){
-            if(!response || !response.results || !response.results.length || !response.results[0] || !response.results[0].address_components || !response.results[0].address_components.length)
+            if(!response || !response.results || !response.results.length || !response.results[0] || !response.results[0].formatted_address)
                 return;
 
-            $("#zone_data").data("google_zip", response);
+            var town = response.results[0].formatted_address;
+            var comma_index = town.indexOf(",");
+            var display = town.substr(0, comma_index + 3);
+
+            $("#zone_data").data("google_zip", display);
 
             setShippingCostByState();
         }
@@ -49,7 +53,7 @@ var setShippingCostByState = function(){
     }
     else {
         var zones = $("#zone_data").data("zones");
-        var state_name = getStateName();
+        var state_name = $("#state_name_select").val();
 
         if(state_name) {
             state_name = state_name.toLowerCase().trim();
@@ -69,38 +73,12 @@ var setShippingCostByState = function(){
     }
 };
 
-var getStateName = function(){
-    var ret = null;
-    var g = $("#zone_data").data("google_zip");
-    if(g && g.results  && g.results.length && g.results[0] && g.results[0].address_components && g.results[0].address_components.length >= 1){
-        var address_components = g.results[0].address_components;
-        for(var i=0; i<address_components.length; ++i){
-            if(address_components[i].types.indexOf("administrative_area_level_1") >= 0){
-                ret = address_components[i].long_name;
-                break;
-            }
-        }
-
-        if(ret == null){
-            $("#zone_data").data("google_zip", "");
-            return getStateAbbreviation();
-        }
-    }
-    else {
-        var geo_ip = $("#zone_data").data("geo_ip")
-        if (geo_ip && geo_ip.region_name) {
-            ret = geo_ip.region_name;
-        }
-    }
-
-    return ret;
-};
-
 var refreshShippingCost = function(){
 
     var is_pickup = $("#pickup").is(':checked');
     if(is_pickup){
         $("#shipping_label").html("Free");
+        $("#shipping_label2").hide();
     }
     else {
 
@@ -109,11 +87,14 @@ var refreshShippingCost = function(){
             productSize = $("#product_size option:selected").text();
 
         if (productSize && productSize.toLowerCase().indexOf("1 gallon") < 0) {
-            $("#shipping_label").html(box_cost_a + " to " + getStateName());
+            $("#shipping_label").html(box_cost_a)
         }
         else {
-            $("#shipping_label").html(box_cost_b + " to " + getStateName());
+            $("#shipping_label").html(box_cost_b);
         }
+
+        $("#shipping_label2").show();
+
     }
 };
 
@@ -153,7 +134,7 @@ $(document).ready(function(){
         if(response && response.ip){
             ipAddress = response.ip;
             regionName = response.region_name && response.region_name;
-            $("#zone_data").data("geo_ip", response);
+            $("#state_name_select").val(regionName)
         }
 
         $.get("/zones.json", function(response) {
@@ -163,19 +144,9 @@ $(document).ready(function(){
         });
     }, "json");
 
-    $("#zip_code").on('input', function(){
-        var val = $(this).val();
 
-        if(val && val.length === 5){
-            setShippingCostByZipCode(val);
-        }
-        else{
-            var d = $("#zone_data").data("google_zip");
-            if(d && d.length) {
-                $("#zone_data").data("google_zip", '');
-                setShippingCostByState();
-            }
-        }
+    $("#state_name_select").change(function(){
+        setShippingCostByState();
     });
 
 

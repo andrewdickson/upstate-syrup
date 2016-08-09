@@ -11,12 +11,16 @@
 
     <span id="zone_data"></span>
     <div class="row">
-      <div class="col-xs-12 col-sm-5 col-md-4">
+      <div class="col-xs-12 col-sm-6 col-md-5">
         <h4><label for="product_size">Size</label></h4>
         <%= select_tag "product_size", options_from_collection_for_select(@products, "id", "name"), class: "form-control", id: "product_size" %>
       </div>
-      <div class="col-xs-12 col-sm-5 col-md-5">
-          <h4><label for="product_size">Shipping (<span id="shipping_label"></span>)</label></h4>
+      <div class="col-xs-12 col-sm-6 col-md-7">
+          <h4>
+            <label for="product_size">
+                Shipping (<span id="shipping_label"></span> <span id="shipping_label2">to <%= render "state_select" %></span>)
+            </label>
+          </h4>
           <div class="radio-inline">
             <label><input type="radio" name="ship_pickup" id="ship" checked>Ship to My Address</label>
           </div>
@@ -25,9 +29,9 @@
           </div>
       </div>
 
-      <div class="col-xs-12 col-sm-2">
+<!--      <div class="col-xs-12 col-sm-2">
         <input type="text" class="form-control" placeholder="Zip Code" id="zip_code" />
-      </div>
+      </div>-->
 
     </div>
 
