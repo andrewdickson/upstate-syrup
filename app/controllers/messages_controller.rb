@@ -6,19 +6,19 @@ class MessagesController < ApplicationController
   def create
 
     @message = Message.new(params[:message])
+    if (!params[:url] || params[:url] == "") && @message.save
 
-    if @message.save
-      UserMailer.delay.private_message(@message.email, @message.name, @message.message, SettingUtility.settings["message_cc"])
-    end
-    respond_to do |format|
-      if @message.save
-        format.html { redirect_to contact_path, notice: 'message was successfully created.' }
-        format.json { render json: @message, status: :created, location: @message }
-        format.js { render 'create' }
+      if Rails.env.production?
+        UserMailer.delay.private_message(@message.email, @message.name, @message.message, SettingUtility.settings["message_cc"])
       else
-        format.html { render action: "new" }
-        format.json { render json: @message.errors, status: :unprocessable_entity }
+        UserMailer.private_message(@message.email, @message.name, @message.message, SettingUtility.settings["message_cc"]).deliver
       end
+    end
+
+    respond_to do |format|
+      format.html { redirect_to contact_path, notice: 'message was successfully created.' }
+      format.json { render json: @message, status: :created, location: @message }
+      format.js { render 'create' }
     end
   end
 
