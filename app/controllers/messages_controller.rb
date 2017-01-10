@@ -14,11 +14,11 @@ class MessagesController < ApplicationController
         if Rails.env.production?
           secret_key = Rails.env.production? ? "6LfdAREUAAAAAFIqn4S2wBw_ow0BaFhk-0a9Yr-m" : "6LdbUhEUAAAAAMG1a8Cdlc5dnFXAu0o4N9s6TE3f"
 
-          result = HTTParty.post("https://www.google.com/recaptcha/api/siteverify",
+          result = HTTParty.post "https://www.google.com/recaptcha/api/siteverify", :body => {
                                  "secret" => secret_key,
                                  "reponse" => params["g-recaptcha-response"]
                                   #,"remoteip" => request.remote_ip
-          )
+          }
 
           Rails.logger.info params
           Rails.logger.info result
