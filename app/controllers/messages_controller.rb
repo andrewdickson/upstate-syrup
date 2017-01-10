@@ -17,12 +17,12 @@ class MessagesController < ApplicationController
           result = HTTParty.post("https://www.google.com/recaptcha/api/siteverify",
                                  "secret" => secret_key,
                                  "reponse" => params["g-recaptcha-response"]
-          #,"remoteip" => request.remote_ip
+                                  #,"remoteip" => request.remote_ip
           )
 
-          puts params
-          puts result
-          puts params['g-recaptcha-response']
+          Rails.logger.info params
+          Rails.logger.info result
+          Rails.logger.info "params['g-recaptcha-response']#{params['g-recaptcha-response']}"
 
           UserMailer.delay.private_message(@message.email, @message.name, @message.message, SettingUtility.settings["message_cc"])
         else
