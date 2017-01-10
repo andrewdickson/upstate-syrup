@@ -7,7 +7,7 @@ gem 'rake', '10.1.0'
 
 gem 'httparty'
 gem 'jquery-rails'
-gem 'recaptcha', :require => 'recaptcha/rails'
+#gem 'recaptcha', :require => 'recaptcha/rails'
 
 
 gem 'therubyracer'
