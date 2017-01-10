@@ -34,6 +34,15 @@
             </div>
           </div>
 
+          <br/>
+
+          <% if Rails.env.production? %>
+              <div class="g-recaptcha" data-sitekey="6LfdAREUAAAAAPI_qaou3IXwb-bhVcdM52MkA7_7"></div>
+          <% else %>
+              <div class="g-recaptcha" data-sitekey="6LdbUhEUAAAAAFRfaUawpejL8I_CHIHL3AJz8SBr"></div>
+        <% end %>
+
+
           <div id="success">
             <% if message.errors.any? %>
                 <div id="error_explanation">

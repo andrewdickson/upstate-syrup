@@ -5,7 +5,10 @@ gem 'rails', '~> 3.2'
 gem 'sqlite3'
 gem 'rake', '10.1.0'
 
+gem 'httparty'
 gem 'jquery-rails'
+gem 'recaptcha', :require => 'recaptcha/rails'
+
 
 gem 'therubyracer'
 #gem 'libv8', '3.16.14.3'

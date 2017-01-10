@@ -1,5 +1,6 @@
 class MessagesController < ApplicationController
   before_filter :authenticate_user!, except: [:create]
+  require 'httparty'
 
   # POST /messages
   # POST /messages.json
@@ -7,6 +8,16 @@ class MessagesController < ApplicationController
 
     @message = Message.new(params[:message])
     if (!params[:url] || params[:url] == "") && @message.save
+
+      secret_key = Rails.env.production? ? "6LfdAREUAAAAAFIqn4S2wBw_ow0BaFhk-0a9Yr-m" : "6LdbUhEUAAAAAMG1a8Cdlc5dnFXAu0o4N9s6TE3f"
+
+      result = HTTParty.post("https://www.google.com/recaptcha/api/siteverify",
+                             "secret" => secret_key,
+                             "reponse" => params["g-recaptcha-response"]
+                              #,"remoteip" => request.remote_ip
+      )
+
+      puts result
 
       if Rails.env.production?
         UserMailer.delay.private_message(@message.email, @message.name, @message.message, SettingUtility.settings["message_cc"])
