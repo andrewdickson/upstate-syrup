@@ -9,27 +9,42 @@ class MessagesController < ApplicationController
     @message = Message.new(params[:message])
     if (!params[:url] || params[:url] == "") && @message.save
 
-      secret_key = Rails.env.production? ? "6LfdAREUAAAAAFIqn4S2wBw_ow0BaFhk-0a9Yr-m" : "6LdbUhEUAAAAAMG1a8Cdlc5dnFXAu0o4N9s6TE3f"
+      if @message && @message.message && !(@message.message.downcase.include?('http://') || @message.message.downcase.include?('http://'))
 
-      result = HTTParty.post("https://www.google.com/recaptcha/api/siteverify",
-                             "secret" => secret_key,
-                             "reponse" => params["g-recaptcha-response"]
-                              #,"remoteip" => request.remote_ip
-      )
+        if Rails.env.production?
+          secret_key = Rails.env.production? ? "6LfdAREUAAAAAFIqn4S2wBw_ow0BaFhk-0a9Yr-m" : "6LdbUhEUAAAAAMG1a8Cdlc5dnFXAu0o4N9s6TE3f"
 
-      puts result
+          result = HTTParty.post("https://www.google.com/recaptcha/api/siteverify",
+                                 "secret" => secret_key,
+                                 "reponse" => params["g-recaptcha-response"]
+          #,"remoteip" => request.remote_ip
+          )
 
-      if Rails.env.production?
-        UserMailer.delay.private_message(@message.email, @message.name, @message.message, SettingUtility.settings["message_cc"])
+          puts params
+          puts result
+          puts params['g-recaptcha-response']
+
+          UserMailer.delay.private_message(@message.email, @message.name, @message.message, SettingUtility.settings["message_cc"])
+        else
+          UserMailer.private_message(@message.email, @message.name, @message.message, SettingUtility.settings["message_cc"]).deliver
+        end
+
       else
-        UserMailer.private_message(@message.email, @message.name, @message.message, SettingUtility.settings["message_cc"]).deliver
+        puts "Suspected Spam #{@message.message}"
+        @message.message = "[SPAM] #{@message.message}"
+        @message.name = "[SPAM] #{@message.name}"
+        @message.save
       end
     end
+
+
 
     respond_to do |format|
       format.html { redirect_to contact_path, notice: 'message was successfully created.' }
       format.json { render json: @message, status: :created, location: @message }
-      format.js { render 'create' }
+      format.js {
+        render 'create'
+      }
     end
   end
 
