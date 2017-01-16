@@ -9,7 +9,7 @@ class MessagesController < ApplicationController
     @message = Message.new(params[:message])
     if (!params[:url] || params[:url] == "") && @message.save
 
-      if @message && @message.message && !(@message.message.downcase.include?('http://') || @message.message.downcase.include?('http://'))
+      if @message && @message.message && !@message.message.downcase.include?('http')
 
         if Rails.env.production?
           secret_key = Rails.env.production? ? "6LfdAREUAAAAAFIqn4S2wBw_ow0BaFhk-0a9Yr-m" : "6LdbUhEUAAAAAMG1a8Cdlc5dnFXAu0o4N9s6TE3f"
