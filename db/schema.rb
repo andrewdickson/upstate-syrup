@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20160805190851) do
+ActiveRecord::Schema.define(:version => 20170125194216) do
 
   create_table "contents", :force => true do |t|
     t.string   "name"
@@ -44,8 +44,16 @@ ActiveRecord::Schema.define(:version => 20160805190851) do
     t.string   "email"
     t.string   "name"
     t.text     "message"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",                               :null => false
+    t.datetime "updated_at",                               :null => false
+    t.boolean  "spam",              :default => false
+    t.string   "language",          :default => "english"
+    t.boolean  "has_link",          :default => false
+    t.text     "captcha"
+    t.text     "captcha_response"
+    t.string   "captcha_password"
+    t.string   "url"
+    t.boolean  "filled_hidden_url", :default => false
   end
 
   create_table "products", :force => true do |t|

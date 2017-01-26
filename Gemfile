@@ -1,4 +1,4 @@
-source 'https://rubygems.org'
+source 'http://rubygems.org'
 ruby '1.9.3'
 gem 'devise'
 gem 'rails', '~> 3.2'
@@ -26,6 +26,8 @@ gem "paperclip", "~> 3.4.2"
 gem 'acts_as_list'
 gem 'delayed_job_active_record'
 gem 'daemons'
+
+gem 'detect_language'
 
 gem "ImageResize"
 

@@ -7,7 +7,14 @@
   </ol>
 </div>
 
-<div class="row"><h3>Messages</h3></div>
+<div class="row">
+    <div class="col-xs-6">
+      <h3>Messages</h3>
+    </div>
+      <div class="col-xs-6 text-right">
+        <h4><%= check_box_tag 'show_spam', 'show_spam', false, :class => 'filter_spam'%> Show Spam</h4>
+      </div>
+</div>
 <% @messages.each do |message| %>
     <div class="row well">
       <h5><%= message.name %> &lt;<%= message.email %>&gt; </h5>

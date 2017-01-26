@@ -5,39 +5,34 @@ class MessagesController < ApplicationController
   # POST /messages
   # POST /messages.json
   def create
-
     @message = Message.new(params[:message])
-    if (!params[:url] || params[:url] == "") && @message.save
+    @message.captcha_response = params["g-recaptcha-response"]
 
-      if @message && @message.message && !@message.message.downcase.include?('http')
+    @message.save
+    @message.validate(params)
+    @message.save
 
-        if Rails.env.production?
-          secret_key = Rails.env.production? ? "6LfdAREUAAAAAFIqn4S2wBw_ow0BaFhk-0a9Yr-m" : "6LdbUhEUAAAAAMG1a8Cdlc5dnFXAu0o4N9s6TE3f"
+    unless @message.spam
+      if Rails.env.production?
+        secret_key = Rails.env.production? ? "6LfdAREUAAAAAFIqn4S2wBw_ow0BaFhk-0a9Yr-m" : "6LdbUhEUAAAAAMG1a8Cdlc5dnFXAu0o4N9s6TE3f"
 
-          result = HTTParty.post "https://www.google.com/recaptcha/api/siteverify", :body => {
-                                 "secret" => secret_key,
-                                 "reponse" => params["g-recaptcha-response"]
-                                  #,"remoteip" => request.remote_ip
-          }
+        result = HTTParty.post "https://www.google.com/recaptcha/api/siteverify", :body => {
+                               "secret" => secret_key,
+                               "response" => @message.captcha_response
+                                #,"remoteip" => request.remote_ip
+        }
 
-          Rails.logger.info params
-          Rails.logger.info result
-          Rails.logger.info "params['g-recaptcha-response']#{params['g-recaptcha-response']}"
+        Rails.logger.info result
 
-          UserMailer.delay.private_message(@message.email, @message.name, @message.message, SettingUtility.settings["message_cc"])
-        else
-          UserMailer.private_message(@message.email, @message.name, @message.message, SettingUtility.settings["message_cc"]).deliver
-        end
-
+        UserMailer.delay.private_message(@message.email, @message.name, @message.message, SettingUtility.settings["message_cc"])
       else
-        puts "Suspected Spam #{@message.message}"
-        @message.message = "[SPAM] #{@message.message}"
-        @message.name = "[SPAM] #{@message.name}"
-        @message.save
+        UserMailer.private_message(@message.email, @message.name, @message.message, SettingUtility.settings["message_cc"]).deliver
       end
+
+    else
+      @message.mark_spam
+      @message.save
     end
-
-
 
     respond_to do |format|
       format.html { redirect_to contact_path, notice: 'message was successfully created.' }
@@ -52,6 +47,10 @@ class MessagesController < ApplicationController
   # GET /messages.json
   def index
     @messages = Message.order('created_at desc')
+
+    unless params["show_spam"] && params["show_spam"] == "1"
+      @messages = @messages.where(spam: false)
+    end
 
     respond_to do |format|
       format.html # index.html.erb
